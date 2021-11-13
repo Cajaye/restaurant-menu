@@ -13,15 +13,19 @@
 
   // install Swiper modules
   SwiperCore.use([Autoplay, Pagination]);
+
+  import Typewriter from "svelte-typewriter";
 </script>
 
 <article class="grid lg:grid-cols-2 mt-16 items-center">
   <section class="ml-16">
     <div>
       <div>
-        <p class="text-4xl mb-3">
-          Place your order or <span class="block">come in anytime</span>
-        </p>
+        <Typewriter interval={100} loop>
+          <p class="text-4xl mb-3">
+            Place your order or <span class="block">come in anytime!</span>
+          </p>
+        </Typewriter>
       </div>
       <div class="mb-3">
         <p class="text-gray-700">Opening hours? we're always open</p>
@@ -50,20 +54,19 @@
         <input
           class="bg-gray-100 rounded-md py-2 pl-12 pr-8 shadow-"
           placeholder="Enter delivery address"
-          type="text"
-          name="search"
-          id="search"
+          type="location-list"
+          name="location-list"
         />
       </div>
     </div>
   </section>
   <!--Other section starts here-->
-  <section class="place-self-center mr-12">
+  <section class="place-self-center mr-12 cursor-move">
     <Swiper
       spaceBetween={30}
       centeredSlides={true}
       autoplay={{
-        delay: 3800,
+        delay: 4000,
         disableOnInteraction: false,
       }}
       pagination={{
