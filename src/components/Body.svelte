@@ -2,6 +2,7 @@
   import burger from "../assets/burgerr.png";
   import burger2 from "../assets/burger2.png";
   import pizza from "../assets/pizza.png";
+  import Featured from "../components/Featured.svelte";
 
   import { Swiper, SwiperSlide } from "swiper/svelte";
 
@@ -17,7 +18,8 @@
   import Typewriter from "svelte-typewriter";
 </script>
 
-<article class="grid lg:grid-cols-2 mt-16 items-center">
+<article class="grid lg:grid-cols-2 items-center h-full mt-14 justify-center">
+  <!--Remove h-screen for smaller devices-->
   <section class="ml-16">
     <div>
       <div>
@@ -54,9 +56,13 @@
         <input
           class="bg-gray-100 rounded-md py-2 pl-12 pr-8 shadow-"
           placeholder="Enter delivery address"
-          type="location-list"
-          name="location-list"
+          list="locations"
         />
+        <datalist id="locations">
+          <option value="Jamaica" /><option value="United States" /><option
+            value="Canada"
+          /><option value="The UK" /></datalist
+        >
       </div>
     </div>
   </section>
