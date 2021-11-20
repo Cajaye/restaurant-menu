@@ -61,7 +61,7 @@
         </li>
         <li class="inline mr-2">
           <input
-            class="rounded-md px-2 py-px bg-JetBlack text-white cursor-pointer"
+            class="rounded-md px-2 py-px bg-JetBlack text-white cursor-pointer font-semibold"
             type="button"
             value="Create Account"
             name="Create Account"

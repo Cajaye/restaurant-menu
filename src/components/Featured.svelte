@@ -3,7 +3,6 @@
   import { onMount } from "svelte";
   import cardburger from "../assets/cardburger.jpg";
   import friedChicken from "../assets/friedchicken.jpg";
-  import curry from "../assets/curry.jpg";
   import steak from "../assets/steak.jpg";
   //step 1 - design and code the cards
   //step 2 - figure out the thing with supabase
@@ -37,21 +36,21 @@
     {
       id: 1,
       title: "Fried Chicken",
-      price: 15.0,
+      price: 15,
       desciption: "Lorem ipsum dolor sit amet consectetur",
       image: friedChicken,
     },
     {
       id: 0,
       title: "Burger",
-      price: 20.0,
+      price: 26,
       desciption: "Lorem ipsum dolor sit amet consectetur",
       image: cardburger,
     },
     {
       id: 2,
-      title: "Curry",
-      price: 28,
+      title: "Steak and Fries",
+      price: 38,
       desciption: "Lorem ipsum dolor sit amet consectetur",
       image: steak,
     },
