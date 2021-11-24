@@ -7,22 +7,6 @@
   //step 1 - design and code the cards
   //step 2 - figure out the thing with supabase
   //finally - you did it!
-  let numberForCart = 0;
-  const increment = () => {
-    if (numberForCart >= 20) {
-      numberForCart = 20;
-      alert("Clear cart");
-    } else {
-      numberForCart++;
-    }
-  };
-  const decrement = () => {
-    if (numberForCart <= 0) {
-      numberForCart = 0;
-    } else {
-      numberForCart--;
-    }
-  };
 
   interface Card {
     id?: number;
@@ -30,43 +14,48 @@
     price: number;
     desciption: string;
     image: string;
+    amount: number;
   }
-
+  //array of objects to create the cards
   let cards: Card[] = [
     {
       id: 1,
       title: "Fried Chicken",
       price: 15,
-      desciption: "Lorem ipsum dolor sit amet consectetur",
+      desciption: "Lorem ipsum dolor sit amet consectetur.",
       image: friedChicken,
+      amount: 1,
     },
+
     {
       id: 0,
-      title: "Burger",
+      title: "The Perfect Burger",
       price: 26,
-      desciption: "Lorem ipsum dolor sit amet consectetur",
+      desciption: "Juicy patty, the bun is soft but sturdy.",
       image: cardburger,
+      amount: 1,
     },
     {
       id: 2,
       title: "Steak and Fries",
       price: 38,
-      desciption: "Lorem ipsum dolor sit amet consectetur",
+      desciption: "Tender and loaded with flavor.",
       image: steak,
+      amount: 1,
     },
   ];
 </script>
 
 <article class="mt-14 h-screen">
   <div>
-    <h1 class="text-4xl text-center">Meals of the month</h1>
+    <h1 class="text-4xl text-center">Popular meals</h1>
   </div>
   <section class="grid md:grid-cols-3 mt-8 space-y-4 md:space-y-0">
     {#each cards as card}
       <div class="shadow p-4 rounded-md mx-2">
         <div>
           <img
-            class="w-full object-cover rounded-md mb-3"
+            class="w-full object-cover rounded-md mb-3 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-105 hover:cursor-pointer"
             src={card.image}
             alt=""
           />
@@ -81,17 +70,29 @@
           </div>
           <div class="inline-flex">
             <button
+              on:click={() => {
+                if (card.amount === 1) {
+                  card.amount = 1;
+                } else {
+                  card.amount--;
+                }
+              }}
               id="btnOne"
-              on:click={decrement}
-              class="bg-JetBlack text-white font-semibold w-6 h-6 rounded-md {numberForCart ===
-              0
+              class="bg-JetBlack text-white font-semibold w-6 h-6 rounded-md {card.amount ===
+              1
                 ? 'cursor-not-allowed'
                 : ''}">-</button
             >
-            <p class="mx-3">{numberForCart}</p>
+            <p class="mx-3">{card.amount}</p>
             <button
+              on:click={() => {
+                if (card.amount >= 20) {
+                  card.amount = 20;
+                } else {
+                  card.amount++;
+                }
+              }}
               id="btnTwo"
-              on:click={increment}
               class="bg-JetBlack text-white font-semibold w-6 h-6 rounded-md"
               >+</button
             >
