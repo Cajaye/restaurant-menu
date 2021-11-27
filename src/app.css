@@ -2,3 +2,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.mainText {
+  @apply text-5xl text-center font-bold text-JetBlack tracking-wide;
+}

@@ -4,10 +4,10 @@
   import cardburger from "../assets/cardburger.jpg";
   import friedChicken from "../assets/friedchicken.jpg";
   import steak from "../assets/steak.jpg";
+  import CardInfo from "../stores/menustore";
   //step 1 - design and code the cards
   //step 2 - figure out the thing with supabase
   //finally - you did it!
-
   interface Card {
     id?: number;
     title: string;
@@ -22,7 +22,7 @@
       id: 1,
       title: "Fried Chicken",
       price: 15,
-      desciption: "Lorem ipsum dolor sit amet consectetur.",
+      desciption: "Crispy chicken with sweet jerk sauce.",
       image: friedChicken,
       amount: 1,
     },
@@ -48,7 +48,7 @@
 
 <article class="mt-14 h-screen">
   <div>
-    <h1 class="text-4xl text-center">Popular meals</h1>
+    <h1 class="mainText mb-3">Popular meals</h1>
   </div>
   <section class="grid md:grid-cols-3 mt-8 space-y-4 md:space-y-0">
     {#each cards as card}
@@ -71,11 +71,7 @@
           <div class="inline-flex">
             <button
               on:click={() => {
-                if (card.amount === 1) {
-                  card.amount = 1;
-                } else {
-                  card.amount--;
-                }
+                card.amount === 1 ? (card.amount = 1) : card.amount--;
               }}
               id="btnOne"
               class="bg-JetBlack text-white font-semibold w-6 h-6 rounded-md {card.amount ===
@@ -86,11 +82,7 @@
             <p class="mx-3">{card.amount}</p>
             <button
               on:click={() => {
-                if (card.amount >= 20) {
-                  card.amount = 20;
-                } else {
-                  card.amount++;
-                }
+                card.amount >= 20 ? (card.amount = 20) : card.amount++;
               }}
               id="btnTwo"
               class="bg-JetBlack text-white font-semibold w-6 h-6 rounded-md"

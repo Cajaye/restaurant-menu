@@ -1,6 +1,6 @@
-import { readable } from 'svelte/store';
+import { writable } from 'svelte/store';
 
-const CardInfo = readable(
+const CardInfo = writable (
     [
         {   
             id:0,

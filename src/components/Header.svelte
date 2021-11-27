@@ -1,5 +1,5 @@
 <script lang="ts">
-  let count: number = 0;
+  export let count: number = 0;
   const increment = () => {
     count++;
   };
@@ -7,7 +7,7 @@
 
 <header class="flex justify-between text-JetBlack m-6 items-center">
   <div>
-    <h1 class="text-3xl font-semibold tracking-widest">
+    <h1 class="mainText">
       F<span>u</span>l
     </h1>
   </div>
