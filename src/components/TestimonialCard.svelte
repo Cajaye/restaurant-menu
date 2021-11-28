@@ -7,14 +7,10 @@
   export { className as class };
 </script>
 
-<section class="p-6 {className} ml-2">
+<section class="p-6 {className} rounded-md">
   <div class="flex items-center p-5 hover:cursor-pointer">
     <div>
-      <img
-        class=" mb-8 w-32 h-32 object-cover rounded-full"
-        src={picture}
-        alt=""
-      />
+      <img class="w-28 h-28 object-cover rounded-full" src={picture} alt="" />
     </div>
     <div class="leading-loose ml-12">
       <p class="text-lg font-semibold">{name}</p>

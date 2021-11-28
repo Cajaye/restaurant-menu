@@ -46,7 +46,7 @@
   ];
 </script>
 
-<article class="mt-14 h-screen">
+<article class="mt-14 h-full">
   <div>
     <h1 class="mainText mb-3">Popular meals</h1>
   </div>

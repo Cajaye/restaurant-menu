@@ -4,31 +4,29 @@
   import person3 from "../assets/person3.jpg";
   import Stars from "./Stars.svelte";
   import TestimonialCard from "./TestimonialCard.svelte";
-  let val = 1;
-  const focusedElement = (focused: number) => {
-    return (val = focused);
-  };
-  focusedElement(2);
+
+  type active = "first" | "second" | "third";
+  let testimonialCards: active = "first";
 </script>
 
-<article>
-  <h1 class="mainText mb-6">Testimonials</h1>
-  <div class="grid md:grid-cols-2 gap-x-6">
+<article class="mt-16 mx-4">
+  <h1 class="mainText mb-8">Testimonials</h1>
+  <div class="grid md:grid-cols-2 gap-x-10">
     <div>
       <TestimonialCard
-        class={val === 1 ? "shadow-lg" : ""}
+        class={testimonialCards === "first" ? "shadow-lg" : ""}
         name="Ca-Jaye Clarke"
         dateVisited="April 17,2021"
         picture={person}
       />
       <TestimonialCard
-        class={val === 2 ? "shadow-lg" : ""}
+        class={testimonialCards === "second" ? "shadow-lg" : ""}
         name="Sydney James"
         dateVisited="January 1,2021"
         picture={person2}
       />
       <TestimonialCard
-        class={val === 3 ? "shadow-lg" : ""}
+        class={testimonialCards === "third" ? "shadow-lg" : ""}
         name="Dexter Morgan"
         dateVisited="November 21,2020"
         picture={person3}
@@ -38,7 +36,7 @@
       <div>
         <p class="text-lg font-semibold">I had a great experience!</p>
       </div>
-      <Stars />
+      <Stars fill1="#FBBF24" outline1="" />
       <div class="leading-loose md:whitespace-pre-line">
         <p>
           Great restaurant with a long history of providing our family a
