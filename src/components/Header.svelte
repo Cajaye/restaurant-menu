@@ -1,8 +1,5 @@
 <script lang="ts">
-  export let count: number = 0;
-  const increment = () => {
-    count++;
-  };
+  import { itemsInCard } from "../stores/cartstore";
 </script>
 
 <header class="flex justify-between text-JetBlack m-6 items-center">
@@ -33,10 +30,11 @@
           <div
             class="bg-JetBlack rounded-full w-5 h-5 text-xs absolute top-[-14px] right-[-17px]"
           >
-            <p class=" p-0.5 text-center text-white font-bold">{count}</p>
+            <p class=" p-0.5 text-center text-white font-bold">
+              {$itemsInCard}
+            </p>
           </div>
           <svg
-            on:click={increment}
             xmlns="http://www.w3.org/2000/svg"
             class="h-6 w-6 inline cursor-pointer"
             fill="none"

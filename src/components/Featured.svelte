@@ -4,6 +4,7 @@
   import cardburger from "../assets/cardburger.jpg";
   import friedChicken from "../assets/friedchicken.jpg";
   import steak from "../assets/steak.jpg";
+  import { itemsInCard } from "../stores/cartstore";
   import CardInfo from "../stores/menustore";
   //step 1 - design and code the cards
   //step 2 - figure out the thing with supabase
@@ -55,7 +56,7 @@
       <div class="shadow p-4 rounded-md mx-2">
         <div>
           <img
-            class="w-full object-cover rounded-md mb-3 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-105 hover:cursor-pointer"
+            class="w-full object-cover rounded-md mb-3"
             src={card.image}
             alt=""
           />
@@ -92,6 +93,10 @@
         </div>
         <div class="text-center">
           <button
+            on:click={() => {
+              itemsInCard.update((n) => (n += card.amount)); // on click take card.amount and add it to itemsInCard
+              card.amount = 1;
+            }}
             class="bg-JetBlack text-white font-semibold rounded-2xl px-8 py-1 mt-7"
             >Add to cart</button
           >

@@ -4,9 +4,24 @@
   import person3 from "../assets/person3.jpg";
   import Stars from "./Stars.svelte";
   import TestimonialCard from "./TestimonialCard.svelte";
+  import { fade } from "svelte/transition";
 
   type active = "first" | "second" | "third";
-  let testimonialCards: active = "first";
+  export let testimonialCards: active = "first";
+
+  const changeState = (state: active) => {
+    return (testimonialCards = state);
+  };
+
+  //write if statements in html for the paragraphs
+  //like if testimonialCards === first then show the first paragraph...
+  //   {#if porridge.temperature > 100}
+  // 	<p>too hot!</p>
+  // {:else if 80 > porridge.temperature}
+  // 	<p>too cold!</p>
+  // {:else}
+  // 	<p>just right!</p>
+  // {/if}
 </script>
 
 <article class="mt-16 mx-4">
@@ -14,18 +29,21 @@
   <div class="grid md:grid-cols-2 gap-x-10">
     <div>
       <TestimonialCard
+        State={() => changeState("first")}
         class={testimonialCards === "first" ? "shadow-lg" : ""}
         name="Ca-Jaye Clarke"
         dateVisited="April 17,2021"
         picture={person}
       />
       <TestimonialCard
+        State={() => changeState("second")}
         class={testimonialCards === "second" ? "shadow-lg" : ""}
         name="Sydney James"
         dateVisited="January 1,2021"
         picture={person2}
       />
       <TestimonialCard
+        State={() => changeState("third")}
         class={testimonialCards === "third" ? "shadow-lg" : ""}
         name="Dexter Morgan"
         dateVisited="November 21,2020"
@@ -38,16 +56,18 @@
       </div>
       <Stars fill1="#FBBF24" outline1="" />
       <div class="leading-loose md:whitespace-pre-line">
-        <p>
-          Great restaurant with a long history of providing our family a
-          consistently excellent dining experience. The owners and staff always
-          exceed our expectations and truly seem to appreciate their customers.
-          There are so many great menu items to choose from. Their salad
-          dressing is AMAZING! We recently celebrated Mother's Day there. The
-          weather was beautiful that morning. We really enjoyed sitting out on
-          the covered patio. If you've never been, you owe it to yourself to
-          give them a try.
-        </p>
+        {#if testimonialCards === "first"}
+          <p transition:fade={{ delay: 250, duration: 300 }}>
+            Great restaurant with a long history of providing our family a
+            consistently excellent dining experience. The owners and staff
+            always exceed our expectations and truly seem to appreciate their
+            customers. There are so many great menu items to choose from. Their
+            salad dressing is AMAZING! We recently celebrated Mother's Day
+            there. The weather was beautiful that morning. We really enjoyed
+            sitting out on the covered patio. If you've never been, you owe it
+            to yourself to give them a try.
+          </p>
+        {/if}
       </div>
       <div class="mt-5">
         <p>
