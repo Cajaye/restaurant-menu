@@ -55,7 +55,7 @@
         <p class="text-lg font-semibold">I had a great experience!</p>
       </div>
       <Stars fill1="#FBBF24" outline1="" />
-      <div class="leading-loose md:whitespace-pre-line">
+      <div class="leading-loose lg:whitespace-pre-line">
         {#if testimonialCards === "first"}
           <p transition:fade={{ delay: 250, duration: 300 }}>
             Great restaurant with a long history of providing our family a

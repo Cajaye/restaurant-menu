@@ -1,34 +1,61 @@
 <script lang="ts">
   import { itemsInCard } from "../stores/cartstore";
+  let toggleMenu = false;
+  const toggle = (bool: boolean): boolean => {
+    return (toggleMenu = bool);
+  };
 </script>
 
-<header class="flex justify-between text-JetBlack m-6 items-center">
+<header class="flex justify-between text-JetBlack m-6 md:items-center">
   <div>
     <h1 class="mainText">
       F<span>u</span>l
     </h1>
   </div>
-  <div>
-    <nav>
+  <div class="self-center">
+    <div>
+      <svg
+        on:click={() => {
+          if (!toggleMenu) {
+            toggle(true);
+          } else {
+            toggle(false);
+          }
+        }}
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-7 w-7 cursor-pointer md:hidden"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="#2D2D2D"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"
+        />
+      </svg>
+    </div>
+    <nav class=" md:block {toggleMenu === false ? 'hidden' : ''}">
       <ul>
-        <li class="inline mr-5 border-b-2 border-JetBlack">
+        <li class="navItems border-b-2 border-JetBlack">
           <a href="home.com">Home</a>
         </li>
-        <li class="inline mr-5">
+        <li class="navItems">
           <a href="menue.com">Menu</a>
         </li>
-        <li class="inline mr-5">
+        <li class="navItems">
           <a href="service.com">Service</a>
         </li>
-        <li class="inline mr-5">
+        <li class="navItems">
           <a href="about.com">About</a>
         </li>
-        <li class="inline mr-5">
+        <li class="navItems">
           <a href="gallery.com">Gallery</a>
         </li>
-        <li class="inline mr-6 relative">
+        <li class="navItems relative mt-5 md:mt-0">
           <div
-            class="bg-JetBlack rounded-full w-5 h-5 text-xs absolute top-[-14px] right-[-17px]"
+            class="bg-JetBlack rounded-full w-5 h-5 text-xs absolute top-[-14px] md:right-[-17px] left-5"
           >
             <p class=" p-0.5 text-center text-white font-bold">
               {$itemsInCard}

@@ -6,3 +6,6 @@
 .mainText {
   @apply text-5xl text-center font-bold text-JetBlack tracking-wide;
 }
+.navItems {
+  @apply md:inline md:mr-5;
+}
