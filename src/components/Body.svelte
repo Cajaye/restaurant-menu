@@ -18,8 +18,9 @@
   import Typewriter from "svelte-typewriter";
 </script>
 
-<article class="grid lg:grid-cols-2 items-center h-screen justify-center">
-  <!--Remove h-screen for smaller devices-->
+<article
+  class="grid md:grid-cols-2 items-center h-screen md:justify-center overflow-hidden"
+>
   <section class="ml-16">
     <div>
       <div>

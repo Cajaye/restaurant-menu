@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { itemsInCard } from "../stores/cartstore";
+  import { itemsInCart } from "../stores/cartstore";
   let toggleMenu = false;
   const toggle = (bool: boolean): boolean => {
     return (toggleMenu = bool);
@@ -36,6 +36,7 @@
         />
       </svg>
     </div>
+
     <nav class=" md:block {toggleMenu === false ? 'hidden' : ''}">
       <ul>
         <li class="navItems border-b-2 border-JetBlack">
@@ -58,7 +59,7 @@
             class="bg-JetBlack rounded-full w-5 h-5 text-xs absolute top-[-14px] md:right-[-17px] left-5"
           >
             <p class=" p-0.5 text-center text-white font-bold">
-              {$itemsInCard}
+              {$itemsInCart}
             </p>
           </div>
           <svg

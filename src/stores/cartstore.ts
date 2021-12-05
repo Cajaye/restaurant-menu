@@ -1,3 +1,3 @@
 import { writable } from 'svelte/store';
 
-export let itemsInCard = writable(0);
+export let itemsInCart = writable(0);
