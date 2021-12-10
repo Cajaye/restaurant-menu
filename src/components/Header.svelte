@@ -37,7 +37,7 @@
       </svg>
     </div>
 
-    <nav class=" md:block {toggleMenu === false ? 'hidden' : ''}">
+    <nav class="md:block {toggleMenu === false ? 'hidden' : ''}">
       <ul>
         <li class="navItems border-b-2 border-JetBlack">
           <a href="home.com">Home</a>
@@ -64,7 +64,7 @@
           </div>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6 inline cursor-pointer"
+            class="h-6 w-6 inline cursor-pointer mb-1.5 md:mb-0"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -85,7 +85,7 @@
             name="login"
           />
         </li>
-        <li class="inline mr-2">
+        <li class="md:inline mr-2 text-center my-2 md:my-2">
           <input
             class="rounded-md px-2 py-px bg-JetBlack text-white cursor-pointer font-semibold"
             type="button"

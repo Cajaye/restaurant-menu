@@ -1,11 +1,8 @@
 <script lang="ts">
-  import supabase from "../lib/db";
-  import { onMount } from "svelte";
   import cardburger from "../assets/cardburger.jpg";
   import friedChicken from "../assets/friedchicken.jpg";
   import steak from "../assets/steak.jpg";
   import { itemsInCart } from "../stores/cartstore";
-  import CardInfo from "../stores/menustore";
   //step 1 - design and code the cards
   //step 2 - figure out the thing with supabase
   //finally - you did it!
@@ -83,7 +80,7 @@
             <p class="mx-3">{card.amount}</p>
             <button
               on:click={() => {
-                card.amount >= 20 ? (card.amount = 20) : card.amount++;
+                card.amount >= 30 ? (card.amount = 30) : card.amount++;
               }}
               id="btnTwo"
               class="bg-JetBlack text-white font-semibold w-6 h-6 rounded-md"

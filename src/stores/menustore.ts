@@ -1,12 +1,13 @@
 import { writable } from 'svelte/store';
 
-const CardInfo = writable (
-    [
-        {   
-            id:0,
-            name:'Burger'
-        }
-    ]
-)
 
-export default CardInfo
+interface Card {
+    id?: number;
+    title: string;
+    price: number;
+    desciption: string;
+    image: string;
+    amount: number;
+  }
+
+

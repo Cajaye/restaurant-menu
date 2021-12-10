@@ -6,8 +6,4 @@
     }
     return selected + cart;
   };
-
-  let arr = [1, 2, 3, 4];
-  arr.push(1);
-  console.log(arr);
 </script>

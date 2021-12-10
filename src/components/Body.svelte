@@ -59,11 +59,6 @@
           placeholder="Enter delivery address"
           list="locations"
         />
-        <datalist id="locations">
-          <option value="Jamaica" /><option value="United States" /><option
-            value="Canada"
-          /><option value="The UK" /></datalist
-        >
       </div>
     </div>
   </section>

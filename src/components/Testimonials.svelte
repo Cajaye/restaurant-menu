@@ -7,21 +7,11 @@
   import { fade } from "svelte/transition";
 
   type active = "first" | "second" | "third";
-  export let testimonialCards: active = "first";
-
+  let testimonialCards: active = "first";
+  //changes the paragraph and box shadow
   const changeState = (state: active) => {
     return (testimonialCards = state);
   };
-
-  //write if statements in html for the paragraphs
-  //like if testimonialCards === first then show the first paragraph...
-  //   {#if porridge.temperature > 100}
-  // 	<p>too hot!</p>
-  // {:else if 80 > porridge.temperature}
-  // 	<p>too cold!</p>
-  // {:else}
-  // 	<p>just right!</p>
-  // {/if}
 </script>
 
 <article class="mt-16 mx-4">
@@ -29,21 +19,21 @@
   <div class="grid md:grid-cols-2 gap-x-10">
     <div>
       <TestimonialCard
-        State={() => changeState("first")}
+        on:click={() => changeState("first")}
         class={testimonialCards === "first" ? "shadow-lg" : ""}
         name="Ca-Jaye Clarke"
         dateVisited="April 17,2021"
         picture={person}
       />
       <TestimonialCard
-        State={() => changeState("second")}
+        on:click={() => changeState("second")}
         class={testimonialCards === "second" ? "shadow-lg" : ""}
         name="Sydney James"
         dateVisited="January 1,2021"
         picture={person2}
       />
       <TestimonialCard
-        State={() => changeState("third")}
+        on:click={() => changeState("third")}
         class={testimonialCards === "third" ? "shadow-lg" : ""}
         name="Dexter Morgan"
         dateVisited="November 21,2020"
@@ -57,15 +47,35 @@
       <Stars fill1="#FBBF24" outline1="" />
       <div class="leading-loose lg:whitespace-pre-line">
         {#if testimonialCards === "first"}
-          <p transition:fade={{ delay: 250, duration: 300 }}>
-            Great restaurant with a long history of providing our family a
+          <p>
+            "Great restaurant with a long history of providing our family a
             consistently excellent dining experience. The owners and staff
             always exceed our expectations and truly seem to appreciate their
             customers. There are so many great menu items to choose from. Their
             salad dressing is AMAZING! We recently celebrated Mother's Day
             there. The weather was beautiful that morning. We really enjoyed
             sitting out on the covered patio. If you've never been, you owe it
-            to yourself to give them a try.
+            to yourself to give them a try."
+          </p>
+        {/if}
+        {#if testimonialCards === "second"}
+          <p>
+            "Gorgeous restaurant, incredible food. I ordered their Oven Roasted
+            Pork Chop with Scallion Mashed Potatoes, Balsamic Roasted Red
+            Onions, and Port Reduction Sauce. It was so lovely and tender, it
+            literally fell off the bone. Tuscany is an absolutely beautiful
+            restaurant that I would highly recommend it for special occasions
+            and events."
+          </p>
+        {/if}
+        {#if testimonialCards === "third"}
+          <p>
+            "I just wanted to let you know that I had one of the best dinners of
+            my life last night…. at your restaurant!! I have been out of town
+            and I saw the email about the 3-course Bastille Day/Week dinner. It
+            was a last minute thing and I love Chicken Cordon Bleu, so I decided
+            to go. Anyway, I had the cold-smoked French herring with warm potato
+            salad and the fruit tart. Everything was just superb!"
           </p>
         {/if}
       </div>
