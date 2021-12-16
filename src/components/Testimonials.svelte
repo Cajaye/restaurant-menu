@@ -14,7 +14,7 @@
   };
 </script>
 
-<article class="mt-16 mx-4">
+<article class="mt-16 p-8">
   <h1 class="mainText mb-8">Testimonials</h1>
   <div class="grid md:grid-cols-2 gap-x-10">
     <div>
@@ -45,7 +45,7 @@
         <p class="text-lg font-semibold">I had a great experience!</p>
       </div>
       <Stars fill1="#FBBF24" outline1="" />
-      <div class="leading-loose lg:whitespace-pre-line">
+      <div class="leading-loose lg:whitespace-pre-line text-gray-900">
         {#if testimonialCards === "first"}
           <p>
             "Great restaurant with a long history of providing our family a
@@ -57,8 +57,7 @@
             sitting out on the covered patio. If you've never been, you owe it
             to yourself to give them a try."
           </p>
-        {/if}
-        {#if testimonialCards === "second"}
+        {:else if testimonialCards === "second"}
           <p>
             "Gorgeous restaurant, incredible food. I ordered their Oven Roasted
             Pork Chop with Scallion Mashed Potatoes, Balsamic Roasted Red
@@ -67,8 +66,7 @@
             restaurant that I would highly recommend it for special occasions
             and events."
           </p>
-        {/if}
-        {#if testimonialCards === "third"}
+        {:else if testimonialCards === "third"}
           <p>
             "I just wanted to let you know that I had one of the best dinners of
             my life last night…. at your restaurant!! I have been out of town
@@ -80,7 +78,7 @@
         {/if}
       </div>
       <div class="mt-5">
-        <p>
+        <p class="text-gray-900">
           Feel free to also leave a <a
             href="rev.com"
             class="text-blue-600 font-semibold"

@@ -56,9 +56,9 @@
         </li>
         <li class="navItems relative mt-5 md:mt-0">
           <div
-            class="bg-JetBlack rounded-full w-5 h-5 text-xs absolute top-[-14px] md:right-[-17px] left-5"
+            class="bg-JetBlack p-0.5 rounded-full w-5 h-5 text-xs absolute top-[-14px] md:right-[-17px] left-5"
           >
-            <p class=" p-0.5 text-center text-white font-bold">
+            <p class="text-center text-white font-bold">
               {$itemsInCart}
             </p>
           </div>

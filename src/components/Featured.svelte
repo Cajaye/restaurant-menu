@@ -42,6 +42,7 @@
       amount: 1,
     },
   ];
+  //text-white font-semibold rounded-2xl px-8 py-1 mt-7
 </script>
 
 <article class="mt-14 h-full">
@@ -64,7 +65,7 @@
         </div>
         <div class="flex justify-between">
           <div>
-            <p class="text-gray-700">{card.desciption}</p>
+            <p class="text-gray-900">{card.desciption}</p>
           </div>
           <div class="inline-flex">
             <button
@@ -94,7 +95,7 @@
               itemsInCart.update((n) => (n += card.amount)); // on click take card.amount and add it to itemsInCard
               card.amount = 1;
             }}
-            class="bg-JetBlack text-white font-semibold rounded-2xl px-8 py-1 mt-7"
+            class="bg-JetBlack h-10 px-6 font-semibold rounded-md text-white mt-5"
             >Add to cart</button
           >
         </div>
