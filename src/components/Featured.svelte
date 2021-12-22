@@ -1,11 +1,5 @@
 <script lang="ts">
-  import cardburger from "../assets/cardburger.jpg";
-  import friedChicken from "../assets/friedchicken.jpg";
-  import steak from "../assets/steak.jpg";
   import { itemsInCart } from "../stores/cartstore";
-  //step 1 - design and code the cards
-  //step 2 - figure out the thing with supabase
-  //finally - you did it!
   import { cards } from "../stores/fetch";
 </script>
 
