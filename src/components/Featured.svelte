@@ -6,43 +6,7 @@
   //step 1 - design and code the cards
   //step 2 - figure out the thing with supabase
   //finally - you did it!
-  interface Card {
-    id?: number;
-    title: string;
-    price: number;
-    desciption: string;
-    image: string;
-    amount: number;
-  }
-  //array of objects to create the cards
-  let cards: Card[] = [
-    {
-      id: 1,
-      title: "Fried Chicken",
-      price: 15,
-      desciption: "Crispy chicken with sweet jerk sauce.",
-      image: friedChicken,
-      amount: 1,
-    },
-
-    {
-      id: 0,
-      title: "The Perfect Burger",
-      price: 26,
-      desciption: "Juicy patty, the bun is soft but sturdy.",
-      image: cardburger,
-      amount: 1,
-    },
-    {
-      id: 2,
-      title: "Steak and Fries",
-      price: 38,
-      desciption: "Tender and loaded with flavor.",
-      image: steak,
-      amount: 1,
-    },
-  ];
-  //text-white font-semibold rounded-2xl px-8 py-1 mt-7
+  import { cards } from "../stores/fetch";
 </script>
 
 <article class="mt-14 h-full">
@@ -100,6 +64,8 @@
           >
         </div>
       </div>
+    {:else}
+      <p>Loading...</p>
     {/each}
   </section>
 </article>
