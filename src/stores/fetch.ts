@@ -1,6 +1,5 @@
-import { readable } from 'svelte/store';
-import { onMount } from "svelte";
-
+import {readable } from "svelte/store"
+import type { Readable } from "svelte/store"
 interface Card {
     id?: number;
     title: string;
@@ -10,18 +9,15 @@ interface Card {
     amount: number;
   }
 
-export let cards:Readable<Card[]> = readable([])
+  export let cards: Readable<Card[]> = readable([]);
 
-
-  onMount(async () => {
+  const fetchData = async () => {
     try {
-      const url = "http://localhost:5000/api/cards";
+      const url = "http://localhost:5000/api/cards/3";
       const res = await fetch(url);
       const data = await res.json();
       cards = data;
     } catch (error) {
-        if (error) {
-            console.log(error);
-        }
+      console.log(error);
     }
-  });
+};

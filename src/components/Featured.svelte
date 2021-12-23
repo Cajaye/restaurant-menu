@@ -1,6 +1,27 @@
 <script lang="ts">
   import { itemsInCart } from "../stores/cartstore";
-  import { cards } from "../stores/fetch";
+  import { onMount } from "svelte";
+  interface Card {
+    id?: number;
+    title: string;
+    price: number;
+    desciption: string;
+    image: string;
+    amount: number;
+  }
+
+  let cards: Card[] = [];
+
+  onMount(async () => {
+    try {
+      const url = "http://localhost:5000/api/cards/3";
+      const res = await fetch(url);
+      const data = await res.json();
+      cards = data;
+    } catch (error) {
+      console.log(error);
+    }
+  });
 </script>
 
 <article class="mt-14 h-full">
