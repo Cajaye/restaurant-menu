@@ -1,17 +1,53 @@
 <script lang="ts">
-  //use fetch methods get and post in this file
-  let name: string;
-  let content: string;
+  //use fetch methods get and post in this
+  let data = {
+    name: "",
+    content: "",
+  };
+
+  const clearInputs = () => {
+    data.name = "";
+    data.content = "";
+  };
 
   interface Reviews {
-    id: string;
+    id?: string;
     name: string;
     content: string;
   }
 
-  let arrOfReviews: Reviews[] = [];
+  const url = "http://localhost:5000/api/v1/reviews";
 
-  //function that takes one argument which is a review object and pushes it to arrOfReviews
+  const getData = async () => {
+    try {
+      const res = await fetch(url);
+      let data = await res.json();
+      if (res.ok) {
+        return data.reviews;
+      } else {
+        throw new Error(data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  getData();
+
+  const postData = async () => {
+    try {
+      const res = await fetch(url, {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-type": "application/json",
+          charset: "utf-8",
+        },
+      });
+      clearInputs();
+    } catch (error) {
+      console.log(error);
+    }
+  };
 </script>
 
 <section>
@@ -19,26 +55,34 @@
 
   <div>
     <ul>
-      {#each arrOfReviews as review}
-        <li>
-          <h3>{review.name}</h3>
-          <p>{review.content}</p>
-        </li>
-      {/each}
+      {#await getData()}
+        ...Loading
+      {:then arrOfReviews}
+        {#each arrOfReviews as review}
+          <li>
+            <h3>{review.name}</h3>
+            <p>{review.content}</p>
+          </li>
+        {/each}
+      {:catch error}
+        <p>Some went wrong {error.message}</p>
+      {/await}
     </ul>
   </div>
   <div>
     <form
-      on:submit|preventDefault={() => {
-        arrOfReviews.push({ content, name });
-        arrOfReviews = arrOfReviews;
-        content = "";
-        name = "";
-        console.table(arrOfReviews);
+      on:submit|preventDefault={async () => {
+        try {
+          await postData();
+          getData();
+        } catch (error) {
+          console.log(error);
+        }
       }}
     >
+      <!--Set up functionality to get data after submit here-->
       <input
-        bind:value={name}
+        bind:value={data.name}
         type="text"
         name="name"
         id=""
@@ -47,7 +91,7 @@
         required
       />
       <input
-        bind:value={content}
+        bind:value={data.content}
         type="text"
         name="content"
         id=""
