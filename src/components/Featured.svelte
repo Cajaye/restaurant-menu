@@ -14,7 +14,7 @@
 
   onMount(async () => {
     try {
-      const url = "http://localhost:5000/api/cards/3";
+      const url = "http://localhost:5000/api/v1/cards/3";
       const res = await fetch(url);
       const data = await res.json();
       cards = data;

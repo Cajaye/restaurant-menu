@@ -7,6 +7,7 @@ const CardSchema = new mongoose.Schema({
     image: String,
     amount: {
         type: Number,
+        default: 1,
         min: 1,
         max: [20, 'You have reached the mximum amount of items']
     },

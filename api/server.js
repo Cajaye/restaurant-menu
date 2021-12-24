@@ -13,6 +13,8 @@ app.use(express.json())
 const cardsRoute = require('./routes/cards')
 app.use('/api/v1/cards', cardsRoute)
 
+const reviews = require('./routes/reviews')
+app.use('/api/v1/reviews', reviews)
 
 const start = async () => {
     try {

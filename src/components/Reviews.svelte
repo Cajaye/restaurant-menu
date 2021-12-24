@@ -1,30 +1,15 @@
 <script lang="ts">
-  const uid = (): string => {
-    const head = performance.now().toString(36);
-    const tail = Math.random().toString(36).substr(2);
-    return head + tail;
-  };
-
-  let arrOfReviews = [
-    {
-      id: uid(),
-      content: "Great expierience at your restaurant",
-      name: "Ca-Jaye",
-    },
-    {
-      id: uid(),
-      content: "Bad expierience at your restaurant",
-      name: "Bobby",
-    },
-    {
-      id: uid(),
-      content: "Decent expierience at your restaurant",
-      name: "John",
-    },
-  ];
-
+  //use fetch methods get and post in this file
   let name: string;
   let content: string;
+
+  interface Reviews {
+    id: string;
+    name: string;
+    content: string;
+  }
+
+  let arrOfReviews: Reviews[] = [];
 
   //function that takes one argument which is a review object and pushes it to arrOfReviews
 </script>
@@ -34,7 +19,7 @@
 
   <div>
     <ul>
-      {#each arrOfReviews as review (review.id)}
+      {#each arrOfReviews as review}
         <li>
           <h3>{review.name}</h3>
           <p>{review.content}</p>
@@ -45,7 +30,7 @@
   <div>
     <form
       on:submit|preventDefault={() => {
-        arrOfReviews.push({ id: uid(), content, name });
+        arrOfReviews.push({ content, name });
         arrOfReviews = arrOfReviews;
         content = "";
         name = "";
@@ -55,7 +40,7 @@
       <input
         bind:value={name}
         type="text"
-        name=""
+        name="name"
         id=""
         class="bg-gray-100 rounded-md"
         placeholder="name"
@@ -64,7 +49,7 @@
       <input
         bind:value={content}
         type="text"
-        name=""
+        name="content"
         id=""
         class="bg-gray-100 rounded-md"
         placeholder="content"
