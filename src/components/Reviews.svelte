@@ -10,12 +10,6 @@
     data.content = "";
   };
 
-  interface Reviews {
-    id?: string;
-    name: string;
-    content: string;
-  }
-
   const url = "http://localhost:5000/api/v1/reviews";
 
   const getData = async () => {
@@ -31,6 +25,7 @@
       console.log(error);
     }
   };
+
   getData();
 
   const postData = async () => {
@@ -70,16 +65,7 @@
     </ul>
   </div>
   <div>
-    <form
-      on:submit|preventDefault={async () => {
-        try {
-          await postData();
-          getData();
-        } catch (error) {
-          console.log(error);
-        }
-      }}
-    >
+    <form on:submit|preventDefault={postData}>
       <!--Set up functionality to get data after submit here-->
       <input
         bind:value={data.name}
