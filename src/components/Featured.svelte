@@ -14,10 +14,14 @@
 
   onMount(async () => {
     try {
-      const url = "http://localhost:5000/api/v1/cards/3";
+      const url = "http://localhost:5000/api/v1/cards?featured=true";
       const res = await fetch(url);
       const data = await res.json();
-      cards = data;
+      if (res.ok) {
+        cards = data.card;
+      } else {
+        throw new Error(data);
+      }
     } catch (error) {
       console.log(error);
     }

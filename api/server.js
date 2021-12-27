@@ -3,7 +3,7 @@ require('dotenv').config()
 const connectDB = require('./db/connect')
 const cors = require('cors');
 const app = express();
-
+require('express-async-errors')
 
 //middleware
 app.use(cors());
