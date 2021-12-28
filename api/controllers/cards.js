@@ -1,10 +1,10 @@
 const Card = require('../models/Card')
 
 const getAllCards = async (req, res) => {
-    const { featured, title, price, rating } = req.query
+    const { featured, title, price, rating, sort, fields } = req.query
     const queryObject = {}
     if (featured) {
-        queryObject.featured = featured === 'true' ? 'true' : 'false'
+        queryObject.featured = featured === 'true' ? true : false
     }
     if (title) {
         queryObject.title = { $regex: title, $options: 'i' }
@@ -15,7 +15,16 @@ const getAllCards = async (req, res) => {
     if (rating) {
         queryObject.rating = Number(rating)
     }
-    const card = await Card.find(queryObject)
+    let result = Card.find(queryObject)
+    if (sort) {
+        const sortList = sort.split(',').join(' ')
+        result = result.sort(sortList)
+    }
+    if (fields) {
+        const fieldsList = fields.split(',').join(' ')
+        result = result.select(fieldsList)
+    }
+    const card = await result
     res.status(200).json({ card, nbHits: card.length });
 }
 

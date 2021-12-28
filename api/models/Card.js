@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const CardSchema = new mongoose.Schema({
     title: String,
-    price: String,
+    price: Number,
     desciption: String,
     image: String,
     amount: {
@@ -12,8 +12,8 @@ const CardSchema = new mongoose.Schema({
         max: [20, 'You have reached the mximum amount of items']
     },
     featured: {
-        type: String,
-        default: 'false'
+        type: Boolean,
+        default: false
     },
     rating: {
         type: Number,
