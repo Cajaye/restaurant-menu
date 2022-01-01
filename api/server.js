@@ -2,12 +2,20 @@ const express = require('express');
 require('dotenv').config()
 const connectDB = require('./db/connect')
 const cors = require('cors');
+const path = require('path')
 const app = express();
 require('express-async-errors')
 
 //middleware
 app.use(cors());
 app.use(express.json())
+
+app.use(express.static(path.join(__dirname, '../dist')))
+app.get('/', (req, res) => {
+    res.set({ 'content-type': 'text/html' });
+    res.sendFile(path.resolve(__dirname, '../dist/index.html'))
+})
+
 
 //custom middlewares
 const errorHandlerMiddleware = require('./middlewares/error-handler')

@@ -1,7 +1,7 @@
 <script lang="ts">
-  import burger from "../assets/burgerr.png";
-  import burger2 from "../assets/burger2.png";
-  import pizza from "../assets/pizza.png";
+  import burger from "/burgerr.png";
+  import burger2 from "/burger2.png";
+  import pizza from "/pizza.png";
   import Featured from "../components/Featured.svelte";
 
   import { Swiper, SwiperSlide } from "swiper/svelte";

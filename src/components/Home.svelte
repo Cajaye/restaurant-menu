@@ -4,6 +4,7 @@
   import Featured from "./Featured.svelte";
   import Testimonials from "./Testimonials.svelte";
   import Reviews from "./Reviews.svelte";
+  import Footer from "./Footer.svelte";
 </script>
 
 <Header />
@@ -11,3 +12,4 @@
 <Featured />
 <Testimonials />
 <Reviews />
+<Footer />

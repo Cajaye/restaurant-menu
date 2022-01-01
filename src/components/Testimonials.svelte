@@ -1,7 +1,7 @@
 <script lang="ts">
-  import person from "../assets/person.jpg";
-  import person2 from "../assets/person2.jpg";
-  import person3 from "../assets/person3.jpg";
+  import person from "/person.jpg";
+  import person2 from "/person2.jpg";
+  import person3 from "/person3.jpg";
   import Stars from "./Stars.svelte";
   import TestimonialCard from "./TestimonialCard.svelte";
   import { fade } from "svelte/transition";
