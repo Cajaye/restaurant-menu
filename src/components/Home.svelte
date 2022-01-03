@@ -3,7 +3,6 @@
   import Body from "./Body.svelte";
   import Featured from "./Featured.svelte";
   import Testimonials from "./Testimonials.svelte";
-  import Reviews from "./Reviews.svelte";
   import Footer from "./Footer.svelte";
 </script>
 
@@ -11,5 +10,4 @@
 <Body />
 <Featured />
 <Testimonials />
-<Reviews />
 <Footer />

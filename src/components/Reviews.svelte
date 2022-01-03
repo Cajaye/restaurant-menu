@@ -1,5 +1,4 @@
 <script lang="ts">
-  //use fetch methods get and post in this
   let data = {
     name: "",
     content: "",
@@ -26,8 +25,6 @@
     }
   };
 
-  getData();
-
   const postData = async () => {
     try {
       const res = await fetch(url, {
@@ -43,12 +40,14 @@
       console.log(error);
     }
   };
+
+  getData();
 </script>
 
-<section>
+<section class="h-screen grid grid-rows-6 grid-cols-2">
   <!--This section contains two grids-->
 
-  <div>
+  <div class="overscroll-y-auto row-span-5 col-span-2 self-end">
     <ul>
       {#await getData()}
         ...Loading
@@ -64,7 +63,7 @@
       {/await}
     </ul>
   </div>
-  <div>
+  <div class="self-end col-span-1">
     <form on:submit|preventDefault={postData}>
       <!--Set up functionality to get data after submit here-->
       <input

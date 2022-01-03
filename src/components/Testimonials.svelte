@@ -5,6 +5,7 @@
   import Stars from "./Stars.svelte";
   import TestimonialCard from "./TestimonialCard.svelte";
   import { fade } from "svelte/transition";
+  import { Link } from "svelte-navigator";
 
   type active = "first" | "second" | "third";
   let testimonialCards: active = "first";
@@ -79,8 +80,8 @@
       </div>
       <div class="mt-5">
         <p class="text-gray-900">
-          Feel free to also leave a <a
-            href="rev.com"
+          Feel free to also leave a <Link
+            to="reviews"
             class="text-blue-600 font-semibold"
             >review <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -93,7 +94,7 @@
                 d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
                 clip-rule="evenodd"
               />
-            </svg></a
+            </svg></Link
           >
         </p>
       </div>

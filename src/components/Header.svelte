@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { Link } from "svelte-navigator";
   import { itemsInCart } from "../stores/cartstore";
   let toggleMenu = false;
   const toggle = (bool: boolean): boolean => {
@@ -78,20 +79,24 @@
           </svg>
         </li>
         <li class="inline mr-2">
-          <input
-            class="rounded-md px-2 bg-gray-100 py-px cursor-pointer"
-            type="button"
-            value="login"
-            name="login"
-          />
+          <Link to="login">
+            <input
+              class="rounded-md px-2 bg-gray-100 py-px cursor-pointer"
+              type="button"
+              value="login"
+              name="login"
+            />
+          </Link>
         </li>
         <li class="md:inline mr-2 text-center my-2 md:my-2">
-          <input
-            class="rounded-md px-2 py-px bg-JetBlack text-white cursor-pointer font-semibold"
-            type="button"
-            value="Create Account"
-            name="Create Account"
-          />
+          <Link to="register">
+            <input
+              class="rounded-md px-2 py-px bg-JetBlack text-white cursor-pointer font-semibold"
+              type="button"
+              value="Create Account"
+              name="Create Account"
+            />
+          </Link>
         </li>
       </ul>
     </nav>

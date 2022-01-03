@@ -9,13 +9,7 @@ require('express-async-errors')
 //middleware
 app.use(cors());
 app.use(express.json())
-
-app.use(express.static(path.join(__dirname, '../dist')))
-app.get('/', (req, res) => {
-    res.set({ 'content-type': 'text/html' });
-    res.sendFile(path.resolve(__dirname, '../dist/index.html'))
-})
-
+app.use(express.urlencoded({ extended: true }));
 
 //custom middlewares
 const errorHandlerMiddleware = require('./middlewares/error-handler')
@@ -26,6 +20,13 @@ app.use('/api/v1/cards', cardsRoute)
 
 const reviews = require('./routes/reviews')
 app.use('/api/v1/reviews', reviews)
+
+//svelte
+app.use(express.static(path.join(__dirname, '../dist')))
+app.get('*', (req, res) => {
+    res.set({ 'content-type': 'text/html' });
+    res.sendFile(path.resolve(__dirname, '../dist/index.html'))
+})
 
 //404
 const notFound = require('./middlewares/not-found')
