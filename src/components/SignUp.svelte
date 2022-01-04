@@ -1,17 +1,19 @@
 <script lang="ts">
   import { Link } from "svelte-navigator";
 
-  let firstName: string;
-  let lastName: string;
+  let firstname: string;
+  let lastname: string;
   let password: string;
   let email: string;
 
   const userInfo = {
-    firstName: firstName,
-    lastName: lastName,
+    firstname: firstname,
+    lastname: lastname,
     password: password,
     email: email,
   };
+
+  const url = "http://localhost:5000/api/v1/auth/register";
 </script>
 
 <section class="bg-gray-100 h-screen grid place-items-center ">
@@ -19,14 +21,14 @@
     <h1 class="font-semibold text-xl text-center">Sign Up</h1>
     <form action="">
       <input
-        bind:value={firstName}
+        bind:value={firstname}
         type="text"
         name="firstName"
         id="firstName"
         placeholder="First Name"
       />
       <input
-        bind:value={lastName}
+        bind:value={lastname}
         type="text"
         name="lastName"
         id="lastName"

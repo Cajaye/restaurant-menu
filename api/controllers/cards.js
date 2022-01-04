@@ -30,8 +30,8 @@ const getAllCards = async (req, res) => {
 
 
 const postCards = async (req, res) => {
-    const card = await Card.create(req.body)
-    res.status(200).json({ card })
+    const card = await Card.create({ ...req.body })
+    res.status(201).json({ card })
 }
 
 

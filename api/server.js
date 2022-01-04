@@ -21,6 +21,9 @@ app.use('/api/v1/cards', cardsRoute)
 const reviews = require('./routes/reviews')
 app.use('/api/v1/reviews', reviews)
 
+const authRoute = require('./routes/auth')
+app.use('/api/v1/auth', authRoute)
+
 //svelte
 app.use(express.static(path.join(__dirname, '../dist')))
 app.get('*', (req, res) => {
