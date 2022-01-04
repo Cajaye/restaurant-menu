@@ -1,6 +1,10 @@
-
+const { StatusCodes } = require('http-status-codes')
+const { CustomAPIError } = require('../errors/index')
 const errorHandlerMiddleware = (err, req, res, next) => {
-    return res.status(500).json({ msg: 'Something went wrong' })
+    if (err instanceof CustomAPIError) {
+        return res.status(err.statusCode).json({ msg: err.message })
+    }
+    return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ msg: 'Something went wrong please try again in a second' })
 }
 
 module.exports = errorHandlerMiddleware

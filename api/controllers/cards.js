@@ -1,5 +1,4 @@
 
-
 const Card = require('../models/Card')
 const getAllCards = async (req, res) => {
     const { featured, title, price, rating, sort, fields } = req.query
@@ -35,11 +34,6 @@ const postCards = async (req, res) => {
     res.status(200).json({ card })
 }
 
-const findById = async (req, res) => {
-    const { id } = req.params
-    const card = await Card.findById(id)
-    res.status(200).json({ card })
-}
 
 
-module.exports = { getAllCards, postCards, findById };
+module.exports = { getAllCards, postCards };
