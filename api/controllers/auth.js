@@ -23,8 +23,8 @@ const login = async (req, res) => {
 
     const comparePassword = await matchPassword(password, user.password)
     if (!comparePassword) throw new UnauthorizedError('Invalid password')
-
-    res.status(StatusCodes.OK).json('Token')
+    const token = user.createJWT()
+    res.status(StatusCodes.OK).json({ user: { firstname: user.firstname, lastname: user.lastname, userId: user._id }, token })
 
 }
 

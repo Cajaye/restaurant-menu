@@ -13,6 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 
 //custom middlewares
 const errorHandlerMiddleware = require('./middlewares/error-handler')
+const authorizeUser = require('./middlewares/authentication')
 
 //routes
 const cardsRoute = require('./routes/cards')

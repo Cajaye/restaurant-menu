@@ -37,8 +37,6 @@
         },
       });
       const dataError = await res.json();
-      console.log(dataError);
-
       if (res.ok) {
         getData();
         clearInputs();
@@ -77,7 +75,7 @@
             <option value="1">1</option>
           </select>
         </div>
-        <p class="text-red-500">{errorMessage}</p>
+        <p class="text-red-500 mt-2">{errorMessage}</p>
         <input
           class="bg-JetBlack text-white font-semibold rounded-md w-full px-52 py-2 block mt-3 cursor-pointer"
           type="submit"
