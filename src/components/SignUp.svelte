@@ -1,5 +1,7 @@
 <script lang="ts">
-  import { Link } from "svelte-navigator";
+  import { Link, useNavigate } from "svelte-navigator";
+
+  const navigate = useNavigate();
 
   const userInfo = {
     firstname: "",
@@ -31,8 +33,13 @@
     const data = await res.json();
     if (res.ok) {
       localStorage.setItem("token", data.token);
+      const { fullname, userId, email } = data.user;
+      localStorage.setItem("fullname", fullname);
+      localStorage.setItem("userId", userId);
+      localStorage.setItem("email", email);
       clearInputs();
       //redirect to success
+      navigate("../success");
     } else {
       errorMessage = "Please fill out all input fields";
     }
@@ -90,7 +97,7 @@
       />
       <p class="text-red-500 mt-4">{errorMessage}</p>
       <p class="mt-4">
-        Already have an acccount?<Link to="login" class="text-blue-600"
+        Already have an acccount?<Link to="../login" class="text-blue-600"
           >Log in</Link
         >
       </p>

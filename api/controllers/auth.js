@@ -10,7 +10,7 @@ const matchPassword = async (enteredpassword, oldPassword) => {
 const register = async (req, res) => {
     const user = await User.create({ ...req.body })
     const token = user.createJWT()
-    res.status(StatusCodes.CREATED).json({ user: { fullname: `${user.firstname} ${user.lastname}` }, token })
+    res.status(StatusCodes.CREATED).json({ user: { fullname: `${user.firstname} ${user.lastname}`, userId: user._id, email: user.email }, token })
 }
 
 const login = async (req, res) => {
@@ -24,7 +24,7 @@ const login = async (req, res) => {
     const comparePassword = await matchPassword(password, user.password)
     if (!comparePassword) throw new UnauthorizedError('Invalid password')
     const token = user.createJWT()
-    res.status(StatusCodes.OK).json({ user: { firstname: user.firstname, lastname: user.lastname, userId: user._id }, token })
+    res.status(StatusCodes.OK).json({ user: { firstname: user.firstname, lastname: user.lastname, userId: user._id, email: user.email }, token })
 
 }
 

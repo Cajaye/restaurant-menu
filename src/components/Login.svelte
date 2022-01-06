@@ -43,7 +43,7 @@
         />
         <p class="text-red-500">{errorMessage}</p>
         <p class="mt-6">
-          Don't have an account?<Link to="register" class="text-blue-600"
+          Don't have an account?<Link to="../register" class="text-blue-600"
             >Sign up/Register</Link
           >
         </p>

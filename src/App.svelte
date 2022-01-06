@@ -4,6 +4,7 @@
   import Login from "./components/Login.svelte";
   import SignUp from "./components/SignUp.svelte";
   import Reviews from "./components/Reviews.svelte";
+  import Success from "./components/Success.svelte";
 </script>
 
 <Router>
@@ -19,6 +20,9 @@
     </Route>
     <Route path="register">
       <SignUp />
+    </Route>
+    <Route path="success">
+      <Success />
     </Route>
   </main>
 </Router>
