@@ -1,6 +1,9 @@
 <script lang="ts">
+  import { token } from "../stores/token";
+
+  const bearerToken = `Bearer ${$token}`;
+
   let data = {
-    name: "Bob",
     content: "",
     rating: "",
   };
@@ -16,7 +19,12 @@
 
   const getData = async () => {
     try {
-      const res = await fetch(url);
+      const res = await fetch(url, {
+        method: "GET",
+        headers: {
+          Authorization: bearerToken,
+        },
+      });
       let data = await res.json();
       if (res.ok) {
         reviews = data.reviews;
@@ -32,6 +40,7 @@
         method: "POST",
         body: JSON.stringify(data),
         headers: {
+          Authorization: bearerToken,
           "Content-type": "application/json",
           charset: "utf-8",
         },
@@ -40,6 +49,7 @@
       if (res.ok) {
         getData();
         clearInputs();
+        errorMessage = "";
       } else {
         errorMessage = dataError.msg;
       }
@@ -86,7 +96,7 @@
     <!--Filter methods wit query-->
   </div>
   <div style="scrollbar-width: thin" class="overflow-y-scroll w-1/2 mt-8 p-4">
-    {#each reviews.reverse() as review}
+    {#each reviews as review}
       <div
         style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;"
         class="rounded-md mb-4 p-4"

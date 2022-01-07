@@ -18,7 +18,11 @@ const ReviewSchema = new mongoose.Schema({
     date: {
         type: String,
         default: new Date().toDateString()
+    },
+    createdBy: {
+        type: mongoose.Types.ObjectId,
+        required: [true, "Provide a user"]
     }
-})
+}, { timestamps: true })
 
 module.exports = mongoose.model('Review', ReviewSchema)

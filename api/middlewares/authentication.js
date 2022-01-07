@@ -11,8 +11,7 @@ const auth = async (req, res, next) => {
     const token = authHeader.split(' ')[1];
     try {
         const payload = jwt.decode(token, process.env.JWT_SECRET)
-        const { UserId, name } = payload;
-        req.user = { UserId, name };
+        req.user = { userId: payload.userId, name: payload.name };
         next()
     } catch (error) {
         throw new BadRequest('Not authorized to access this resource')

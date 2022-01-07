@@ -7,7 +7,7 @@ const handleExtenders = (extender) => {
 }
 
 const getAllReviews = async (req, res) => {
-    const { sort, field, name, rating } = req.query;
+    const { field, name, rating } = req.query;
     const queryObject = {}
     if (name) {
         queryObject.name = { $regex: name, $options: 'i' }
@@ -15,10 +15,7 @@ const getAllReviews = async (req, res) => {
     if (rating) {
         queryObject.rating = Number(rating)
     }
-    let result = Reviews.find(queryObject)
-    if (sort) {
-        result = result.sort(handleExtenders(sort))
-    }
+    let result = Reviews.find(queryObject).sort('-createdAt')
     if (field) {
         result = result.select(handleExtenders(field))
     }
@@ -28,6 +25,8 @@ const getAllReviews = async (req, res) => {
 
 const postReview = async (req, res) => {
     const { content, rating } = req.body;
+    req.body.createdBy = req.user.userId
+    req.body.name = req.user.name
     if (!content || !rating) {
         throw new BadRequest('Please provide content and rating')
     }

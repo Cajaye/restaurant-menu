@@ -32,7 +32,7 @@ UserSchema.pre('save', async function () {
 })
 
 UserSchema.methods.createJWT = function () {
-    return jwt.sign({ userId: this.user_id, name: this.firstname }, process.env.JWT_SECRET, { expiresIn: '30d' })
+    return jwt.sign({ userId: this._id, name: this.firstname }, process.env.JWT_SECRET, { expiresIn: '30d' })
 }
 
 module.exports = mongoose.model('User', UserSchema)
