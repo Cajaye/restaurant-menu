@@ -1,24 +1,38 @@
 const mongoose = require('mongoose');
 
 const CardSchema = new mongoose.Schema({
-    title: String,
-    price: Number,
-    desciption: String,
-    image: String,
+    title: {
+        type: String,
+        required: true
+    },
+    price: {
+        type: Number,
+        required: true
+    },
+    desciption: {
+        type: String,
+        required: true
+    },
+    image: {
+        type: String,
+        required: true
+    },
     amount: {
         type: Number,
         default: 1,
         min: 1,
-        max: [20, 'You have reached the mximum amount of items']
+        max: [20, 'You have reached the mximum amount of items'],
+        required: true
     },
     featured: {
         type: Boolean,
-        default: false
+        default: false,
     },
     rating: {
         type: Number,
         max: 5,
-        min: 1
+        min: 1,
+        required: true
     }
 })
 

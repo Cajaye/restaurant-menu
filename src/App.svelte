@@ -5,6 +5,7 @@
   import SignUp from "./components/SignUp.svelte";
   import Reviews from "./components/Reviews.svelte";
   import Success from "./components/Success.svelte";
+  import Cart from "./components/Cart.svelte";
 </script>
 
 <Router>
@@ -23,6 +24,9 @@
     </Route>
     <Route path="success">
       <Success />
+    </Route>
+    <Route path="cart">
+      <Cart />
     </Route>
   </main>
 </Router>

@@ -22,6 +22,9 @@ app.use('/api/v1/cards', cardsRoute)
 const reviews = require('./routes/reviews')
 app.use('/api/v1/reviews', authorizeUser, reviews)
 
+const cart = require('./routes/cart')
+app.use('/api/v1/cart', authorizeUser, cart)
+
 const authRoute = require('./routes/auth')
 app.use('/api/v1/auth', authRoute)
 

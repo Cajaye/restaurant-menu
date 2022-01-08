@@ -1,6 +1,7 @@
 <script lang="ts">
   import { itemsInCart } from "../stores/cartstore";
   import { onMount } from "svelte";
+
   interface Card {
     id?: number;
     title: string;
@@ -10,7 +11,7 @@
     amount: number;
   }
 
-  let cards: Card[] = [];
+  export let cards: Card[] = [];
 
   onMount(async () => {
     try {
