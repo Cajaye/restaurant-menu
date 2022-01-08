@@ -9,9 +9,8 @@ const errorHandlerMiddleware = (err, req, res, next) => {
         customError.msg = Object.values(err.errors)
             .map((item) => item.message)
             .join(',')
-    }
-    if (err instanceof CustomAPIError) {
-        return res.status(err.statusCode).json({ msg: err.message })
+        customError.statusCode = StatusCodes.BAD_REQUEST;
+
     }
     if (err.code && err.code === 11000) {
         customError.msg = `Duplicate for ${Object.keys(err.keyValue)} field`
