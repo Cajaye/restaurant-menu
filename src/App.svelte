@@ -32,4 +32,7 @@
 </Router>
 
 <style>
+ :global(:focus) { 
+    outline: none; 
+  }
 </style>

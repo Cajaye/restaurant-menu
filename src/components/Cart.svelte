@@ -1,6 +1,7 @@
 <script lang="ts">
+  const url: string = "http://localhost:5000/api/v1/cart";
 </script>
 
-<section>
-  <h1 class="font-semibold text-5xl">Your Items</h1>
+<section class="p-8">
+  <h1 class="mainText mb-3">Your Items</h1>
 </section>

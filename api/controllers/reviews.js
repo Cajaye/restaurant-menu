@@ -20,7 +20,7 @@ const getAllReviews = async (req, res) => {
         result = result.select(handleExtenders(field))
     }
     const reviews = await result
-    res.status(200).json({ reviews })
+    res.status(200).json({ reviews, amount: reviews.length })
 }
 
 const postReview = async (req, res) => {

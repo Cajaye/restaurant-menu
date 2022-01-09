@@ -2,7 +2,6 @@ const express = require('express');
 require('dotenv').config()
 const connectDB = require('./db/connect')
 const cors = require('cors');
-const path = require('path')
 const app = express();
 require('express-async-errors')
 
@@ -27,13 +26,6 @@ app.use('/api/v1/cart', authorizeUser, cart)
 
 const authRoute = require('./routes/auth')
 app.use('/api/v1/auth', authRoute)
-
-//svelte
-app.use(express.static(path.join(__dirname, '../dist')))
-app.get('*', (req, res) => {
-    res.set({ 'content-type': 'text/html' });
-    res.sendFile(path.resolve(__dirname, '../dist/index.html'))
-})
 
 //404
 const notFound = require('./middlewares/not-found')
