@@ -3,7 +3,6 @@
   import { onMount } from "svelte";
   import Button from "./Button.svelte";
   import OperationButton from "./OperationButton.svelte";
-  import Card from "./Card.svelte";
 
   interface Card {
     id?: number;
@@ -38,13 +37,47 @@
   </div>
   <section class="grid md:grid-cols-3 mt-8 space-y-4 md:space-y-0">
     {#each cards as card}
-      <Card
-        image={card.image}
-        title={card.title}
-        description={card.description}
-        price={card.price}
-        amount={card.amount}
-      />
+      <div class="shadow p-4 rounded-md mx-2">
+        <div>
+          <img
+            class="w-full object-cover rounded-md mb-3"
+            src={card.image}
+            alt=""
+          />
+        </div>
+        <div class=" flex justify-between font-semibold mb-4">
+          <p class="text-lg">{card.title}</p>
+          <p>${card.price}.00</p>
+        </div>
+        <div class="flex justify-between">
+          <div>
+            <p class="text-gray-900">{card.description}</p>
+          </div>
+          <div class="inline-flex">
+            <OperationButton
+              operation="-"
+              on:click={() => {
+                card.amount === 1 ? (card.amount = 1) : card.amount--;
+              }}
+            />
+            <p class="mx-3">{card.amount}</p>
+            <OperationButton
+              operation="+"
+              on:click={() => {
+                card.amount >= 30 ? (card.amount = 30) : card.amount++;
+              }}
+            />
+          </div>
+        </div>
+        <div class="text-center">
+          <Button
+            on:click={() => {
+              itemsInCart.update((n) => (n += card.amount)); // on click take card.amount and add it to itemsInCard
+              card.amount = 1;
+            }}
+          />
+        </div>
+      </div>
     {:else}
       <p>Loading...</p>
     {/each}
