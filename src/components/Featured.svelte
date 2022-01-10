@@ -71,6 +71,7 @@
         </div>
         <div class="text-center">
           <Button
+            value="Add to cart"
             on:click={() => {
               itemsInCart.update((n) => (n += card.amount)); // on click take card.amount and add it to itemsInCard
               card.amount = 1;
