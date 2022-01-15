@@ -8,6 +8,10 @@
   const toggle = (bool: boolean): boolean => {
     return (toggleMenu = bool);
   };
+  import { useLocation } from "svelte-navigator";
+
+  const location = useLocation();
+  $: address = $location.pathname;
 </script>
 
 <header class="flex justify-between text-JetBlack m-6 md:items-center">
@@ -43,23 +47,41 @@
 
     <nav class="md:block {toggleMenu === false ? 'hidden' : ''}">
       <ul>
-        <li class="navItems border-b-2 border-JetBlack">
-          <a href="home.com">Home</a>
+        <li
+          class="navItems {address === '/' ? 'border-b-2 border-JetBlack' : ''}"
+        >
+          <Link to="../">Home</Link>
         </li>
-        <li class="navItems">
-          <a href="menue.com">Menu</a>
+        <li
+          class="navItems {address === '/menu'
+            ? 'border-b-2 border-JetBlack'
+            : ''}"
+        >
+          <Link to="../menu">Menu</Link>
         </li>
-        <li class="navItems">
-          <a href="service.com">Service</a>
+        <li
+          class="navItems {address === '/reviews'
+            ? 'border-b-2 border-JetBlack'
+            : ''}"
+        >
+          <Link to="../reviews">Reviews</Link>
         </li>
-        <li class="navItems">
-          <a href="about.com">About</a>
+        <li
+          class="navItems {address === '/about'
+            ? 'border-b-2 border-JetBlack'
+            : ''}"
+        >
+          <Link to="../about">About</Link>
         </li>
-        <li class="navItems">
-          <a href="gallery.com">Gallery</a>
+        <li
+          class="navItems {address === '/gallery'
+            ? 'border-b-2 border-JetBlack'
+            : ''}"
+        >
+          <Link to="../gallery">Gallery</Link>
         </li>
 
-        <Link to="cart">
+        <Link to="../cart">
           <li class="navItems relative mt-5 md:mt-0">
             <div
               class="bg-JetBlack p-0.5 rounded-full w-5 h-5 text-xs absolute top-[-14px] md:right-[-17px] left-5"

@@ -3,6 +3,7 @@
   import OperationButton from "./OperationButton.svelte";
   import { token } from "../stores/token";
   import Skeleton from "./Skeleton.svelte";
+  import Header from "./Header.svelte";
 
   const BearerToken = `Bearer ${$token}`;
   const url: string = "http://localhost:5000/api/v1/cart";
@@ -28,11 +29,10 @@
   };
 
   getCart();
-
-  import { itemsInCart } from "../stores/cartstore";
 </script>
 
-<h1 class="mainText my-3">Your Items</h1>
+<Header />
+<h1 class="mainText my-3 mt-16">Your Items</h1>
 <section class="grid lg:grid-cols-3 pt-8">
   {#each cartItems as item}
     <div class="shadow p-4 rounded-md mx-2">

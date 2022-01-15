@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Header from "./Header.svelte";
   import { token } from "../stores/token";
 
   const bearerToken = `Bearer ${$token}`;
@@ -61,6 +62,7 @@
   getData();
 </script>
 
+<Header />
 <section class="h-screen flex items-center justify-center flex-col pt-8 px-8">
   <div>
     <div>
