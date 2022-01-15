@@ -21,7 +21,7 @@
       const data = await res.json();
       if (res.ok) {
         cartItems = data.card;
-        console.log(data.amount);
+        console.log(data.card);
       }
     } catch (error) {
       console.log(error);
@@ -29,30 +29,6 @@
   };
 
   getCart();
-
-  let itemId: string | number = 0;
-
-  const purcaseItem = async () => {
-    try {
-      const res = await fetch(url, {
-        method: "DELETE",
-        body: JSON.stringify(itemId), //data will be the id of the item
-        headers: {
-          Authorization: BearerToken,
-          "Content-type": "application/json",
-          charset: "utf-8",
-        },
-      });
-      const dataError = await res.json();
-      if (res.ok) {
-        error = "";
-      } else {
-        error = dataError.msg;
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   import { itemsInCart } from "../stores/cartstore";
 </script>
@@ -93,10 +69,32 @@
         </div>
       </div>
       <div class="text-center">
-        <Button value="Purchase Item" on:click={() => {}} />
+        <Button
+          value="Purchase Item"
+          on:click={async () => {
+            try {
+              const res = await fetch(url, {
+                method: "DELETE",
+                body: JSON.stringify({ itemId: item._id }), //data will be the id of the item
+                headers: {
+                  Authorization: BearerToken,
+                  "Content-type": "application/json",
+                  charset: "utf-8",
+                },
+              });
+              const dataError = await res.json();
+              if (res.ok) {
+                getCart();
+                error = "";
+              } else {
+                error = dataError.msg;
+              }
+            } catch (error) {
+              console.log(error);
+            }
+          }}
+        />
       </div>
     </div>
-  {:else}
-    <Loader />
   {/each}
 </section>

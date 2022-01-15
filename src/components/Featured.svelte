@@ -1,5 +1,6 @@
 <script lang="ts">
   import { itemsInCart } from "../stores/cartstore";
+  
   import { onMount } from "svelte";
   import Button from "./Button.svelte";
   import OperationButton from "./OperationButton.svelte";
