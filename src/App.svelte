@@ -1,11 +1,14 @@
 <script lang="ts">
   import { Router, Route } from "svelte-navigator";
   import Home from "./components/Home.svelte";
+  import Menu from "./components/Menu.svelte";
   import Login from "./components/Login.svelte";
   import SignUp from "./components/SignUp.svelte";
   import Reviews from "./components/Reviews.svelte";
   import Success from "./components/Success.svelte";
   import Cart from "./components/Cart.svelte";
+  import About from "./components/About.svelte";
+  import Gallery from "./components/Gallery.svelte";
   import { token } from "./stores/token";
   $: isAuthenticated = $token;
 </script>
@@ -40,6 +43,15 @@
         <Success />
       </Route>
     {/if}
+    <Route path="menu">
+      <Menu />
+    </Route>
+    <Route path="about">
+      <About />
+    </Route>
+    <Route path="gallery">
+      <Gallery />
+    </Route>
   </main>
 </Router>
 
