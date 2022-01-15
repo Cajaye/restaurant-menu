@@ -2,13 +2,14 @@
   import { itemsInCart } from "../stores/cartstore";
   import { onMount } from "svelte";
   import Button from "./Button.svelte";
+  import Skeleton from "./Skeleton.svelte";
   import OperationButton from "./OperationButton.svelte";
   import { useNavigate } from "svelte-navigator";
 
   const navigate = useNavigate();
 
   interface Card {
-    id?: number;
+    _id: number | string;
     title: string;
     price: number;
     description: string;
@@ -34,7 +35,35 @@
   });
 
   import { token } from "../stores/token";
+  import Success from "./Success.svelte";
   $: isAuthenticated = $token;
+
+  const BearerToken = `Bearer ${$token}`;
+  const url: string = "http://localhost:5000/api/v1/cart";
+
+  let successOrErrorMessage = "";
+
+  const addItem = async ({ added, amount }) => {
+    try {
+      const res = await fetch(url, {
+        method: "POST",
+        body: JSON.stringify({ added, amount }), //data will be the id of the item
+        headers: {
+          Authorization: BearerToken,
+          "Content-type": "application/json",
+          charset: "utf-8",
+        },
+      });
+      const message = await res.json();
+      if (res.ok) {
+        successOrErrorMessage = message.msg;
+      } else {
+        successOrErrorMessage = message.msg;
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
 </script>
 
 <article class="mt-14 h-full">
@@ -82,15 +111,23 @@
               if (!isAuthenticated) {
                 navigate("/register");
               } else {
-                itemsInCart.update((n) => (n += card.amount)); // on click take card.amount and add it to itemsInCard
-                card.amount = 1;
+                addItem({ added: card._id, amount: card.amount });
               }
             }}
           />
         </div>
       </div>
     {:else}
-      <p>Loading...</p>
+      <Skeleton />
+      <Skeleton />
+      <Skeleton />
     {/each}
+    <p
+      class="{successOrErrorMessage.startsWith('D')
+        ? 'text-red-500'
+        : 'text-green-500'} text-center"
+    >
+      {successOrErrorMessage}
+    </p>
   </section>
 </article>

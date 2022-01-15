@@ -22,7 +22,7 @@ const removeItemFromCart = async (req, res) => {
 const addToCart = async (req, res) => {
     req.body.addedBy = req.user.userId
     const cart = await Cart.create(req.body)
-    res.status(StatusCodes.CREATED).json({ cart })
+    res.status(StatusCodes.CREATED).json({ cart, msg: 'Item has been successfully added to your cart' })
 }
 
 module.exports = { getUsersCart, addToCart, removeItemFromCart }

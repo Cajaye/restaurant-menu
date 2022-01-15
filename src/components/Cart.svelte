@@ -2,7 +2,7 @@
   import Button from "./Button.svelte";
   import OperationButton from "./OperationButton.svelte";
   import { token } from "../stores/token";
-  import Loader from "./Loader.svelte";
+  import Skeleton from "./Skeleton.svelte";
 
   const BearerToken = `Bearer ${$token}`;
   const url: string = "http://localhost:5000/api/v1/cart";
@@ -21,7 +21,6 @@
       const data = await res.json();
       if (res.ok) {
         cartItems = data.card;
-        console.log(data.card);
       }
     } catch (error) {
       console.log(error);
@@ -96,5 +95,9 @@
         />
       </div>
     </div>
+  {:else}
+    <Skeleton />
+    <Skeleton />
+    <Skeleton />
   {/each}
 </section>
