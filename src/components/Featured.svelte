@@ -1,9 +1,11 @@
 <script lang="ts">
   import { itemsInCart } from "../stores/cartstore";
-  
   import { onMount } from "svelte";
   import Button from "./Button.svelte";
   import OperationButton from "./OperationButton.svelte";
+  import { useNavigate } from "svelte-navigator";
+
+  const navigate = useNavigate();
 
   interface Card {
     id?: number;
@@ -30,6 +32,9 @@
       console.log(error);
     }
   });
+
+  import { token } from "../stores/token";
+  $: isAuthenticated = $token;
 </script>
 
 <article class="mt-14 h-full">
@@ -74,8 +79,12 @@
           <Button
             value="Add to cart"
             on:click={() => {
-              itemsInCart.update((n) => (n += card.amount)); // on click take card.amount and add it to itemsInCard
-              card.amount = 1;
+              if (!isAuthenticated) {
+                navigate("/register");
+              } else {
+                itemsInCart.update((n) => (n += card.amount)); // on click take card.amount and add it to itemsInCard
+                card.amount = 1;
+              }
             }}
           />
         </div>

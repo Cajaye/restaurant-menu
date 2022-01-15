@@ -6,10 +6,9 @@
   import Reviews from "./components/Reviews.svelte";
   import Success from "./components/Success.svelte";
   import Cart from "./components/Cart.svelte";
+  import Skeleton from "./components/Skeleton.svelte";
   import { token } from "./stores/token";
   $: isAuthenticated = $token;
-
-  let path;
 </script>
 
 <Router>
@@ -42,6 +41,9 @@
         <Success />
       </Route>
     {/if}
+    <Route path="skeleton">
+      <Skeleton />
+    </Route>
   </main>
 </Router>
 

@@ -34,7 +34,7 @@
 </script>
 
 <h1 class="mainText my-3">Your Items</h1>
-<section class="grid grid-cols-3 pt-8 px-8">
+<section class="grid lg:grid-cols-3 pt-8">
   {#each cartItems as item}
     <div class="shadow p-4 rounded-md mx-2">
       <div>
