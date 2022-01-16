@@ -61,4 +61,4 @@
     </form>
   </div>
 </footer>
-<p class="text-center">&copy {year} Ful - All rights reserved</p>
+<p class="text-center">Copyright &copy {year} Ful - All rights reserved</p>
