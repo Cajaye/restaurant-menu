@@ -1,5 +1,6 @@
 <script lang="ts">
   import { Link, useNavigate } from "svelte-navigator";
+  import Header from "./Header.svelte";
 
   const navigate = useNavigate();
 
@@ -46,10 +47,11 @@
   };
 </script>
 
+<Header />
 <section class="h-screen grid place-items-center">
   <div
     style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;"
-    class="bg-white rounded-md w-7/12 p-8 flex justify-evenly items-center flex-col"
+    class="bg-white rounded-md md:w-[70%] w-[90%] p-12 flex justify-evenly items-center flex-col"
   >
     <div class="mb-8">
       <h1 class="font-semibold text-xl text-center">Sign Up/Register</h1>
@@ -57,7 +59,7 @@
 
     <form on:submit|preventDefault={signUp} action="">
       <input
-        class="bg-gray-200 py-2 pl-2 rounded-md"
+        class="bg-gray-200 py-2 pl-2 rounded-md w-full md:w-auto md:mb-0 mb-8"
         bind:value={userInfo.firstname}
         type="text"
         name="firstName"
@@ -65,7 +67,7 @@
         placeholder="First Name"
       />
       <input
-        class="bg-gray-200 py-2 pl-2 rounded-md"
+        class="bg-gray-200 py-2 pl-2 rounded-md w-full md:w-auto"
         bind:value={userInfo.lastname}
         type="text"
         name="lastName"

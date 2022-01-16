@@ -1,5 +1,6 @@
 <script lang="ts">
   import { Link } from "svelte-navigator";
+  import Header from "./Header.svelte";
   const loginInfo = {
     email: "",
     password: "",
@@ -8,10 +9,11 @@
   const url = "http://localhost:5000/api/v1/auth/login";
 </script>
 
+<Header />
 <section class="h-screen grid place-items-center">
   <div
     style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;"
-    class="bg-white rounded-md w-7/12 p-8 flex justify-evenly items-center flex-col"
+    class="bg-white rounded-md md:w-[70%] w-[90%] p-12 flex justify-evenly items-center flex-col"
   >
     <div class="mb-8">
       <h1 class="font-semibold text-xl text-center">Login</h1>

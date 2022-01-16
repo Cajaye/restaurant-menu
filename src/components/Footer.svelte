@@ -1,9 +1,10 @@
 <script lang="ts">
   const year = new Date().getFullYear();
+  import { Link } from "svelte-navigator";
 </script>
 
 <footer
-  class="flex space-y-6 md:items-center justify-between p-8 md:flex-row flex-col"
+  class="flex space-y-6 md:items-end justify-between p-8 md:flex-row flex-col"
 >
   <div>
     <div class="mb-3">
@@ -21,7 +22,7 @@
       <h1 class="footerHeadings">COMPANY</h1>
     </div>
     <div class="leading-8 text-gray-900">
-      <p>About us</p>
+      <Link to="../about">About us</Link>
       <p>Contact</p>
       <p>Jobs</p>
       <p>Funding</p>
