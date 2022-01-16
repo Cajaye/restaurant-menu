@@ -55,7 +55,7 @@
           />
         </svg>
         <input
-          class="bg-gray-100 rounded-md py-2 pl-12 pr-8 shadow-"
+          class="bg-gray-100 rounded-md py-2 pl-12 pr-8"
           placeholder="Enter delivery address"
           list="locations"
         />
