@@ -1,5 +1,6 @@
 <script lang="ts">
-  import { Link } from "svelte-navigator";
+  import { Link, useNavigate } from "svelte-navigator";
+  const navigate = useNavigate();
   import Header from "./Header.svelte";
   const loginInfo = {
     email: "",
@@ -7,6 +8,36 @@
   };
   let errorMessage = "";
   const url = "http://localhost:5000/api/v1/auth/login";
+
+  const clearInputs = () => {
+    loginInfo.email = "";
+    loginInfo.password = "";
+  };
+  const login = async () => {
+    try {
+      const res = await fetch(url, {
+        method: "POST",
+        body: JSON.stringify(loginInfo),
+        headers: {
+          "Content-type": "application/json",
+          charset: "utf-8",
+        },
+      });
+      const data = await res.json();
+      if (res.ok) {
+        localStorage.setItem("token", data.token);
+        const { fullname, userId, email } = data.user;
+        localStorage.setItem("fullname", fullname);
+        localStorage.setItem("userId", userId);
+        localStorage.setItem("email", email);
+        clearInputs();
+        //redirect to success
+        navigate("../success");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
 </script>
 
 <Header />
@@ -19,7 +50,7 @@
       <h1 class="font-semibold text-xl text-center">Login</h1>
     </div>
     <div>
-      <form action="">
+      <form action="" on:submit|preventDefault={login}>
         <div>
           <input
             bind:value={loginInfo.email}

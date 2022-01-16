@@ -110,7 +110,7 @@
         <!--If token does not exist show the login and resiter buttons if it does exists show to logout button-->
         {#if $token === null}
           <li class="inline mr-2">
-            <Link to="login">
+            <Link to="../login">
               <input
                 class="rounded-md px-2 bg-gray-100 py-px cursor-pointer"
                 type="button"
@@ -120,7 +120,7 @@
             </Link>
           </li>
           <li class="md:inline mr-2 text-center my-2 md:my-2">
-            <Link to="register">
+            <Link to="../register">
               <input
                 class="rounded-md px-2 py-px bg-JetBlack text-white cursor-pointer font-semibold"
                 type="button"
