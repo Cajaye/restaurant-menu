@@ -9,7 +9,7 @@
 </script>
 
 <Header />
-<section class="h-screen p-12">
+<section class="h-screen p-2">
   <div class="w-full">
     <div class="flex items-center justify-center">
       <svg
@@ -36,7 +36,7 @@
       />
     </div>
   </div>
-  <section class="grid grid-cols-3 mt-20">
+  <section class="grid md:grid-cols-3 mt-20">
     <Skeleton />
     <Skeleton />
     <Skeleton />
