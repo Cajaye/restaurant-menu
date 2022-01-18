@@ -70,7 +70,7 @@
   <div>
     <h1 class="mainText mb-3">Popular meals</h1>
   </div>
-  <section class="grid lg:grid-cols-3 mt-8 space-y-4 md:space-y-0">
+  <section class="grid lg:grid-cols-3 mt-8">
     {#each cards as card}
       <div class="shadow p-4 rounded-md mx-2">
         <div>
