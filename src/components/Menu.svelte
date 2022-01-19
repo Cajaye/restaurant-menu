@@ -8,9 +8,15 @@
   //top-10
 </script>
 
-<Header />
+<header class={y >= 167 ? "invisible" : "block"}>
+  <Header />
+</header>
 <section class="h-screen p-2">
-  <div class="w-full">
+  <div
+    class="w-full {y >= 167
+      ? 'top-0 transition-all fixed z-10 p-4 bg-white'
+      : ''}"
+  >
     <div class="flex items-center justify-center">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -45,3 +51,5 @@
     <Skeleton />
   </section>
 </section>
+
+<svelte:window bind:scrollY={y} />
