@@ -1,48 +1,75 @@
-# Svelte + TS + Vite
+# Project Name
+> Outline a brief description of your project.
+> Live demo [_here_](https://www.example.com). <!-- If you have the project hosted somewhere, include the link here. -->
 
-This template should help get you started developing with Svelte and TypeScript in Vite.
+## Table of Contents
+* [General Info](#general-information)
+* [Technologies Used](#technologies-used)
+* [Features](#features)
+* [Screenshots](#screenshots)
+* [Setup](#setup)
+* [Usage](#usage)
+* [Project Status](#project-status)
+* [Room for Improvement](#room-for-improvement)
+* [Acknowledgements](#acknowledgements)
+* [Contact](#contact)
+<!-- * [License](#license) -->
 
-## Recommended IDE Setup
 
-[VSCode](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode).
+## General Information
+- Provide general information about your project here.
+- What problem does it (intend to) solve?
+- What is the purpose of your project?
+- Why did you undertake it?
+<!-- You don't have to answer all the questions - just the ones relevant to your project. -->
 
-## Need an official Svelte framework?
 
-Check out [SvelteKit](https://github.com/sveltejs/kit#readme), which is also powered by Vite. Deploy anywhere with its serverless-first approach and adapt to various platforms, with out of the box support for TypeScript, SCSS, and Less, and easily-added support for mdsvex, GraphQL, PostCSS, Tailwind CSS, and more.
+## Technologies Used
+- Tech 1 - version 1.0
+- Tech 2 - version 2.0
+- Tech 3 - version 3.0
 
-## Technical considerations
 
-**Why use this over SvelteKit?**
+## Features
+List the ready features here:
+- Awesome feature 1
+- Awesome feature 2
+- Awesome feature 3
 
-- It brings its own routing solution which might not be preferable for some users.
-- It is first and foremost a framework that just happens to use Vite under the hood, not a Vite app.
-  `vite dev` and `vite build` wouldn't work in a SvelteKit environment, for example.
 
-This template contains as little as possible to get started with Vite + TypeScript + Svelte, while taking into account the developer experience with regards to HMR and intellisense. It demonstrates capabilities on par with the other `create-vite` templates and is a good starting point for beginners dipping their toes into a Vite + Svelte project.
+## Screenshots
+![Example screenshot](./img/screenshot.png)
+<!-- If you have screenshots you'd like to share, include them here. -->
 
-Should you later need the extended capabilities and extensibility provided by SvelteKit, the template has been structured similarly to SvelteKit so that it is easy to migrate.
 
-**Why `global.d.ts` instead of `compilerOptions.types` inside `jsconfig.json` or `tsconfig.json`?**
+## Setup
+What are the project requirements/dependencies? Where are they listed? A requirements.txt or a Pipfile.lock file perhaps? Where is it located?
 
-Setting `compilerOptions.types` shuts out all other types not explicitly listed in the configuration. Using triple-slash references keeps the default TypeScript setting of accepting type information from the entire workspace, while also adding `svelte` and `vite/client` type information.
+Proceed to describe how to install / setup one's local environment / get started with the project.
 
-**Why include `.vscode/extensions.json`?**
 
-Other templates indirectly recommend extensions via the README, but this file allows VS Code to prompt the user to install the recommended extension upon opening the project.
+## Usage
+How does one go about using it?
+Provide various use cases and code examples here.
 
-**Why enable `allowJs` in the TS template?**
+`write-your-code-here`
 
-While `allowJs: false` would indeed prevent the use of `.js` files in the project, it does not prevent the use of JavaScript syntax in `.svelte` files. In addition, it would force `checkJs: false`, bringing the worst of both worlds: not being able to guarantee the entire codebase is TypeScript, and also having worse typechecking for the existing JavaScript. In addition, there are valid use cases in which a mixed codebase may be relevant.
 
-**Why is HMR not preserving my local component state?**
+## Project Status
+Project is: _in progress_ / _complete_ / _no longer being worked on_. If you are no longer working on it, provide reasons why.
 
-HMR state preservation comes with a number of gotchas! It has been disabled by default in both `svelte-hmr` and `@sveltejs/vite-plugin-svelte` due to its often surprising behavior. You can read the details [here](https://github.com/rixo/svelte-hmr#svelte-hmr).
 
-If you have state that's important to retain within a component, consider creating an external store which would not be replaced by HMR.
+## Room for Improvement
+Include areas you believe need improvement / could be improved. Also add TODOs for future development.
 
-```ts
-// store.ts
-// An extremely simple external store
-import { writable } from 'svelte/store'
-export default writable(0)
-```
+Room for improvement:
+- Improvement to be done 1
+- Improvement to be done 2
+
+To do:
+- Feature to be added 1
+- Feature to be added 2
+
+
+## Contact
+Created by [https://twitter.com/grunglizaz) - feel free to contact me!
