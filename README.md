@@ -72,4 +72,4 @@ To do:
 
 
 ## Contact
-Created by [https://twitter.com/grunglizaz) - feel free to contact me!
+Created by https://twitter.com/grunglizaz - feel free to contact me!
