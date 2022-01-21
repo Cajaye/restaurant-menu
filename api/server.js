@@ -1,18 +1,31 @@
 const express = require('express');
 require('dotenv').config()
 const connectDB = require('./db/connect')
-const cors = require('cors');
 const app = express();
 require('express-async-errors')
 
 //middleware
-app.use(cors());
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
+
+//security packages
+const cors = require('cors');
+const helmet = require('helmet')
+const xss = require('xss-clean')
+const rateLimiter = require('express-rate-limit')
 
 //custom middlewares
 const errorHandlerMiddleware = require('./middlewares/error-handler')
 const authorizeUser = require('./middlewares/authentication')
+
+//app.set('trust proxy', 1)
+// app.use(rateLimiter({
+//     windowMs: 15 * 60 * 1000, //15 minutes
+//     max: 100
+// }))
+app.use(helmet())
+app.use(cors())
+app.use(xss())
 
 //routes
 const cardsRoute = require('./routes/cards')
