@@ -17,7 +17,7 @@
 </header>
 <section class="h-screen p-2">
   <div
-    class="w-full {y >= 167
+    class="w-full select-none {y >= 167
       ? 'top-0 transition-all fixed z-10 p-4 bg-white'
       : ''}"
   >
@@ -44,37 +44,38 @@
         id="search"
         placeholder="Search for an item..."
       />
-      <div
-        on:click={() => {
-          if (uporDown == false) {
-            toggle(true);
-          } else {
-            toggle(false);
-          }
-        }}
-        class="flex items-center cursor-pointer relative"
-      >
-        <p class="mr-2">Sort by</p>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-5 w-5 {uporDown === true
-            ? 'rotate-180 transition-all'
-            : 'transition-all'}"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
+      <div class="flex items-center cursor-pointer relative">
+        <div
+          on:click={() => {
+            if (uporDown == false) {
+              toggle(true);
+            } else {
+              toggle(false);
+            }
+          }}
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M19 9l-7 7-7-7"
-          />
-        </svg>
+          <p class="mr-2 inline">Sort by</p>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 inline w-5 {uporDown === true
+              ? 'rotate-180 transition-all'
+              : 'transition-all'}"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+        </div>
         {#if uporDown === true}
           <div
             transition:fade={{ delay: 50, duration: 140 }}
-            class="absolute bottom-0 mt-2 h-48 border border-gray-200 font-semibold leading-8 w-40 p-5 right-0 top-7 bg-white rounded-md z-10"
+            class="absolute bottom-0 mt-2 h-48 border border-gray-200 font-semibold leading-8 w-40 p-3 right-0 top-7 bg-white rounded-md z-10"
           >
             <ul>
               <li>Feautured</li>
