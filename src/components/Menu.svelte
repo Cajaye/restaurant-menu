@@ -69,7 +69,7 @@
   $: {
     if (search && search.replace(/\s/g, "").length) {
       menuCards = menuCards.filter((item) =>
-        item.title.toLowerCase().startsWith(search.toLowerCase())
+        item.title.toLowerCase().includes(search.toLowerCase().trim())
       );
     } else {
       menuCards = [...defaultItems];
