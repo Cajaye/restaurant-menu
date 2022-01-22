@@ -7,7 +7,7 @@ const getUsersCart = async (req, res) => {
     const cart = await Cart.find({ addedBy: req.user.userId })
     const added = cart.map((item) => item.added)
     const card = await Card.find({ _id: { $in: added } })
-    res.status(StatusCodes.OK).json({ card, amount: card.length })
+    res.status(StatusCodes.OK).json({ card, amount: cart.length })
 }
 
 const removeItemFromCart = async (req, res) => {

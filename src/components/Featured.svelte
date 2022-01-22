@@ -53,7 +53,7 @@
       <div class="shadow p-4 rounded-md mx-2">
         <div>
           <img
-            class="w-full object-cover rounded-md mb-3"
+            class="w-full object-cover rounded-md mb-3 max-h-64"
             src={card.image}
             alt=""
           />

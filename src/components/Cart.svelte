@@ -1,6 +1,5 @@
 <script lang="ts">
   import Button from "./Button.svelte";
-  import OperationButton from "./OperationButton.svelte";
   import { token } from "../stores/token";
   import Skeleton from "./Skeleton.svelte";
   import Header from "./Header.svelte";
@@ -38,7 +37,7 @@
     <div class="shadow p-4 rounded-md mx-2">
       <div>
         <img
-          class="w-full object-cover rounded-md mb-3"
+          class="w-full object-cover rounded-md mb-3 max-h-64"
           src={item.image}
           alt=""
         />
@@ -50,21 +49,6 @@
       <div class="flex justify-between">
         <div>
           <p class="text-gray-900">{item.description}</p>
-        </div>
-        <div class="inline-flex">
-          <OperationButton
-            operation="-"
-            on:click={() => {
-              item.amount === 1 ? (item.amount = 1) : item.amount--;
-            }}
-          />
-          <p class="mx-3">{item.amount}</p>
-          <OperationButton
-            operation="+"
-            on:click={() => {
-              item.amount >= 30 ? (item.amount = 30) : item.amount++;
-            }}
-          />
         </div>
       </div>
       <div class="text-center">

@@ -18,6 +18,7 @@
   };
 
   let menuCards: Card[] = [];
+  let defaultItems: Card[] = [];
 
   const url = `http://localhost:5000/api/v1/cards`;
 
@@ -27,6 +28,7 @@
       const data = await res.json();
       if (res.ok) {
         menuCards = data.card;
+        defaultItems = data.card;
       } else {
         throw new Error(data);
       }
@@ -67,10 +69,10 @@
   $: {
     if (search && search.replace(/\s/g, "").length) {
       menuCards = menuCards.filter((item) =>
-        item.title.toLowerCase().includes(search.toLowerCase())
+        item.title.toLowerCase().startsWith(search.toLowerCase())
       );
     } else {
-      menuCards = [...menuCards];
+      menuCards = [...defaultItems];
     }
   }
 </script>
@@ -165,7 +167,7 @@
       <div class="shadow p-4 rounded-md mx-2">
         <div>
           <img
-            class="w-full object-cover rounded-md mb-3"
+            class="w-full object-cover rounded-md mb-3 max-h-64"
             src={card.image}
             alt=""
           />
