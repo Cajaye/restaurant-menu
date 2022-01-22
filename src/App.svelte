@@ -18,38 +18,38 @@
     <Route path="/">
       <Home />
     </Route>
-    <Route path="login">
+    <Route path="/login">
       <Login />
     </Route>
-    <Route path="register">
+    <Route path="/register">
       <SignUp />
     </Route>
     {#if isAuthenticated}
-      <Route path="cart">
+      <Route path="/cart">
         <Cart />
       </Route>
     {:else}
-      <Route path={"cart"} component={Login} />
+      <Route path={"/cart"} component={Login} />
     {/if}
     {#if isAuthenticated}
-      <Route path="reviews">
+      <Route path="/reviews">
         <Reviews />
       </Route>
     {:else}
-      <Route path={"reviews"} component={Login} />
+      <Route path={"/reviews"} component={Login} />
     {/if}
     {#if isAuthenticated}
-      <Route path="success">
+      <Route path="/success">
         <Success />
       </Route>
     {/if}
-    <Route path="menu">
+    <Route path="/menu">
       <Menu />
     </Route>
-    <Route path="about">
+    <Route path="/about">
       <About />
     </Route>
-    <Route path="gallery">
+    <Route path="/gallery">
       <Gallery />
     </Route>
   </main>
