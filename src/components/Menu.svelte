@@ -20,7 +20,7 @@
   let menuCards: Card[] = [];
   let defaultItems: Card[] = [];
 
-  const url = `http://localhost:5000/api/v1/cards`;
+  const url = `https://restaurant-01api.herokuapp.com/api/v1/cards`;
 
   const getFilteredData = async (url: string) => {
     try {

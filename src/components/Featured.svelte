@@ -21,7 +21,7 @@
 
   onMount(async () => {
     try {
-      const url = "http://localhost:5000/api/v1/cards?featured=true";
+      const url = "https://restaurant-01api.herokuapp.com/api/v1/cards?featured=true";
       const res = await fetch(url);
       const data = await res.json();
       if (res.ok) {
