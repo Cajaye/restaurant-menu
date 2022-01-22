@@ -18,11 +18,11 @@ const rateLimiter = require('express-rate-limit')
 const errorHandlerMiddleware = require('./middlewares/error-handler')
 const authorizeUser = require('./middlewares/authentication')
 
-//app.set('trust proxy', 1)
-// app.use(rateLimiter({
-//     windowMs: 15 * 60 * 1000, //15 minutes
-//     max: 100
-// }))
+app.set('trust proxy', 1)
+app.use(rateLimiter({
+    windowMs: 15 * 60 * 1000, //15 minutes
+    max: 200
+}))
 app.use(helmet())
 app.use(cors())
 app.use(xss())
