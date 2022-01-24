@@ -16,7 +16,7 @@
   let reviews = [];
   let errorMessage = "";
 
-  const url = "http://localhost:5000/api/v1/reviews";
+  const url = "https://restaurant-01api.herokuapp.com/api/v1/reviews";
 
   const getData = async () => {
     try {

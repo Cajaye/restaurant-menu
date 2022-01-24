@@ -7,7 +7,7 @@
     password: "",
   };
   let errorMessage = "";
-  const url = "http://localhost:5000/api/v1/auth/login";
+  const url = "https://restaurant-01api.herokuapp.com/api/v1/auth/login";
 
   const clearInputs = () => {
     loginInfo.email = "";

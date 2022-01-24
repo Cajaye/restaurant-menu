@@ -13,15 +13,13 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import Skeleton from "./Skeleton.svelte";
-  import { useNavigate } from "svelte-navigator";
-
-  const navigate = useNavigate();
 
   let cards: Card[] = [];
 
   onMount(async () => {
     try {
-      const url = "https://restaurant-01api.herokuapp.com/api/v1/cards?featured=true";
+      const url =
+        "https://restaurant-01api.herokuapp.com/api/v1/cards?featured=true";
       const res = await fetch(url);
       const data = await res.json();
       if (res.ok) {
@@ -33,15 +31,6 @@
       console.log(error);
     }
   });
-  import { token } from "../stores/token";
-  import Success from "./Success.svelte";
-  $: isAuthenticated = $token;
-
-  const BearerToken = `Bearer ${$token}`;
-
-  const url: string = "http://localhost:5000/api/v1/cart";
-
-  let successOrErrorMessage = "";
 </script>
 
 <article class="mt-14 h-full">
@@ -89,12 +78,5 @@
       <Skeleton />
       <Skeleton />
     {/each}
-    <p
-      class="{successOrErrorMessage.startsWith('D')
-        ? 'text-red-500'
-        : 'text-green-500'} text-center"
-    >
-      {successOrErrorMessage}
-    </p>
   </section>
 </article>
