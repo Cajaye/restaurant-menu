@@ -45,15 +45,18 @@
 
   const addItem = async ({ added, amount }) => {
     try {
-      const res = await fetch("http://localhost:5000/api/v1/cart", {
-        method: "POST",
-        body: JSON.stringify({ added, amount }), //data will be the id of the item
-        headers: {
-          Authorization: BearerToken,
-          "Content-type": "application/json",
-          charset: "utf-8",
-        },
-      });
+      const res = await fetch(
+        "https://restaurant-01api.herokuapp.com/api/v1/cart",
+        {
+          method: "POST",
+          body: JSON.stringify({ added, amount }), //data will be the id of the item
+          headers: {
+            Authorization: BearerToken,
+            "Content-type": "application/json",
+            charset: "utf-8",
+          },
+        }
+      );
       const message = await res.json();
       if (res.ok) {
         successOrErrorMessage = message.msg;
