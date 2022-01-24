@@ -138,7 +138,7 @@
             <Link to="../login">
               <button
                 type="button"
-                class="py-1 px-3 mb-2 text-md font-semibold text-gray-900 bg-white rounded-lg border border-gray-200 focus:z-10 focus:ring-2"
+                class="py-1 px-3 text-md font-semibold text-gray-900 bg-white rounded-lg border border-gray-200 focus:z-10 focus:ring-2"
                 >Login</button
               >
             </Link>
@@ -157,7 +157,7 @@
             <button
               on:click={bypassRegister}
               type="button"
-              class="py-1 px-3 mr-2 mb-2 text-md font-semibold text-gray-900 bg-white rounded-lg border border-gray-200 focus:z-10 focus:ring-2"
+              class="py-1 px-3 mb-2 text-md font-semibold text-gray-900 bg-white rounded-lg border border-gray-200 focus:z-10 focus:ring-2"
               >Bypass</button
             >
           </li>
