@@ -5,7 +5,7 @@
   import Header from "./Header.svelte";
 
   const BearerToken = `Bearer ${$token}`;
-  const url: string = "http://localhost:5000/api/v1/cart";
+  const url: string = "https://restaurant-01api.herokuapp.com/api/v1/cart";
 
   let error = "";
   let cartItems = [];
