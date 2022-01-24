@@ -12,6 +12,38 @@
 
   const location = useLocation();
   $: address = $location.pathname;
+
+  const bypass = Object.freeze({
+    email: "myemail@gmail.com",
+    password: "RmNvzU2rnYnNXRj",
+  });
+
+  const bypassRegister = async () => {
+    try {
+      const res = await fetch(
+        "https://restaurant-01api.herokuapp.com/api/v1/auth/login",
+        {
+          method: "POST",
+          body: JSON.stringify(bypass),
+          headers: {
+            "Content-type": "application/json",
+            charset: "utf-8",
+          },
+        }
+      );
+      const data = await res.json();
+      if (res.ok) {
+        localStorage.setItem("token", data.token);
+        const { fullname, userId, email } = data.user;
+        localStorage.setItem("fullname", fullname);
+        localStorage.setItem("userId", userId);
+        localStorage.setItem("email", email);
+        window.location.reload();
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
 </script>
 
 <header class="flex justify-between text-JetBlack m-6 md:items-center">
@@ -67,13 +99,6 @@
           <Link to="../reviews">Reviews</Link>
         </li>
         <li
-          class="navItems {address === '/about'
-            ? 'border-b-2 border-JetBlack'
-            : ''}"
-        >
-          <Link to="../about">About</Link>
-        </li>
-        <li
           class="navItems {address === '/gallery'
             ? 'border-b-2 border-JetBlack'
             : ''}"
@@ -111,27 +136,34 @@
         {#if $token === null}
           <li class="inline mr-2">
             <Link to="../login">
-              <input
-                class="rounded-md px-2 bg-gray-100 py-px cursor-pointer"
+              <button
                 type="button"
-                value="login"
-                name="login"
-              />
+                class="py-1 px-3 mb-2 text-md font-semibold text-gray-900 bg-white rounded-lg border border-gray-200 focus:z-10 focus:ring-2"
+                >Login</button
+              >
             </Link>
           </li>
           <li class="md:inline mr-2 text-center my-2 md:my-2">
             <Link to="../register">
               <input
-                class="rounded-md px-2 py-px bg-JetBlack text-white cursor-pointer font-semibold"
+                class="rounded-lg px-2 py-1 bg-JetBlack text-white cursor-pointer font-semibold"
                 type="button"
                 value="Create Account"
                 name="Create Account"
               />
             </Link>
           </li>
+          <li class="md:inline mr-2 text-center my-2 md:my-2">
+            <button
+              on:click={bypassRegister}
+              type="button"
+              class="py-1 px-3 mr-2 mb-2 text-md font-semibold text-gray-900 bg-white rounded-lg border border-gray-200 focus:z-10 focus:ring-2"
+              >Bypass</button
+            >
+          </li>
         {:else}
           <li class="md:inline mr-2 text-center my-2 md:my-2">
-            <input
+            <button
               on:click={() => {
                 localStorage.removeItem("token");
                 window.location.reload();
@@ -139,11 +171,10 @@
                   navigate("/");
                 }
               }}
-              class="rounded-md px-2 py-px bg-JetBlack text-white cursor-pointer font-semibold"
               type="button"
-              value="logout"
-              name="Log out"
-            />
+              class="py-1 px-3 mr-2 mb-2 text-md font-semibold text-gray-900 bg-white rounded-lg border border-gray-200 focus:z-10 focus:ring-2"
+              >Logout</button
+            >
           </li>
         {/if}
       </ul>
