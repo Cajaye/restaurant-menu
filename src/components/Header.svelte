@@ -143,17 +143,17 @@
               >
             </Link>
           </li>
-          <li class="md:inline mr-2 text-center my-2 md:my-2">
+          <li class="md:inline mr-2 text-center my-2 md:my-2 shadow-lg">
             <Link to="../register">
               <input
-                class="rounded-lg px-2 py-1 bg-JetBlack text-white cursor-pointer font-semibold"
+                class="rounded-lg px-3 py-1 bg-JetBlack text-white cursor-pointer font-semibold"
                 type="button"
-                value="Create Account"
+                value="Register"
                 name="Create Account"
               />
             </Link>
           </li>
-          <li class="md:inline mr-2 text-center my-2 md:my-2">
+          <li class="md:inline my-2 md:my-2">
             <button
               on:click={bypassRegister}
               type="button"
