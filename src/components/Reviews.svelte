@@ -63,13 +63,13 @@
 </script>
 
 <Header />
-<section class="h-screen flex items-center justify-center flex-col pt-8 px-8">
-  <div>
+<section class="flex items-center justify-center flex-col pt-8 px-8">
+  <div class="md:w-9/12 w-[90%]">
     <div>
       <form action="" on:submit|preventDefault={postData}>
         <textarea
           style="scrollbar-width: none"
-          class="border-gray-300 rounded-md w-full pb-24 border-2 pl-4 pt-2 resize-none"
+          class="border-gray-300 rounded-md w-full md:pb-40 pb-14 border-2 pl-4 pt-2 resize-none"
           placeholder="Add a comment..."
           bind:value={data.content}
         />
@@ -89,7 +89,7 @@
         </div>
         <p class="text-red-500 mt-2">{errorMessage}</p>
         <input
-          class="bg-JetBlack text-white font-semibold rounded-md w-full px-52 py-2 block mt-3 cursor-pointer"
+          class="bg-JetBlack text-white font-semibold rounded-md w-full py-2 block mt-3 cursor-pointer"
           type="submit"
           value="POST"
         />
@@ -97,7 +97,10 @@
     </div>
     <!--Filter methods wit query-->
   </div>
-  <div style="scrollbar-width: thin" class="overflow-y-scroll w-1/2 mt-8 p-4">
+  <div
+    style="scrollbar-width: thin"
+    class="overflow-y-scroll max-h-[30rem] md:w-9/12 w-full mt-8 p-2"
+  >
     {#each reviews as review}
       <div
         style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;"
@@ -111,7 +114,7 @@
           </p>
           <p>{review.date}</p>
         </div>
-        <div class="flex items-center justify-end">
+        <div class="flex items-center md:flex-row justify-end">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="h-4 w-4"
